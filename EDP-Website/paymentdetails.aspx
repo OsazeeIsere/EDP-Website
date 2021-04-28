@@ -3,9 +3,12 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
-    <asp:Label ID="lbmsg" runat="server" Text="Label"></asp:Label>
+    <h2><asp:Label ID="lbmsg" runat="server" Text=""></asp:Label></h2>
 <div class="col-lg-4 col-md-4" style="align-self:auto">
-        
+                                  <div class="row">
+                                      <h3 style="text-align:center">Please Enter Your Payment Details</h3>
+                                      <hr style="color:sandybrown" />
+                                      </div>
                         <form class="appointment-form">
                           <div class="row">
                             <div class="col-md-6 col-sm-6">
