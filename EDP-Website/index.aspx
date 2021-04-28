@@ -1,6 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Sitemaster.Master" AutoEventWireup="true" CodeBehind="index.aspx.cs" Inherits="EDP_Website.index" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-</asp:Content>
+    </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
       <!--=========== BEGIN Top Feature SECTION ================-->
     <section id="topFeature">
@@ -10,10 +10,12 @@
           <div class="row">
             <div class="single-top-feature">
               <span class="fa fa-flask"></span>
+                <asp:Label ID="lblmsg" runat="server" Text=""></asp:Label>
               <h3>I already have an account</h3>
               
               <div class="readmore_area">
-                <a href="#" data-hover="Login"><span>Login</span></a>
+                  <asp:LinkButton ID="LinkButton2" runat="server" data-hover="Login" OnClick="btnstartreg_Click"><span>Login</span></asp:LinkButton> 
+
               </div>
             </div>
           </div>
@@ -55,8 +57,8 @@
               <span class="fa fa-hospital-o"></span>
               <h3>I am new here</h3>
               
-              <div class="readmore_area">
-                <a data-toggle="modal" data-target="#myModal" href="#" data-hover="Register"><span>Register</span></a>    
+              <div class="readmore_area" style="height: 27px">
+                  <asp:LinkButton ID="btnstartreg" data-toggle="modal" data-target="#myModal" runat="server" data-hover="Register" OnClick="btnstartreg_Click"><span>Register</span></asp:LinkButton> 
               </div>
               <!-- start modal window -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -71,60 +73,175 @@
                         <form class="appointment-form">
                           <div class="row">
                             <div class="col-md-6 col-sm-6">
-                              <label class="control-label">Your name <span class="required">*</span>
+                              <label class="control-label">First Name <span class="required">*</span>
                               </label>
-                              <input type="text" class="wp-form-control wpcf7-text" placeholder="Your name">
+                                <asp:TextBox class="wp-form-control wpcf7-text" placeholder="Enter Your First name" ID="txtfirstname" runat="server"></asp:TextBox>
                             </div>
                             <div class="col-md-6 col-sm-6">
-                              <label class="control-label">Your Email <span class="required">*</span>
+                              <label class="control-label">Last Name <span class="required">*</span>
                               </label>
-                              <input type="mail" class="wp-form-control wpcf7-email" placeholder="Email address">  
+                               <asp:TextBox class="wp-form-control wpcf7-text" placeholder="Enter Your Last Name" ID="txtlastname" runat="server"></asp:TextBox>
                             </div>
                           </div>
-                          <div class="row">
+
+                            <div class="row">
                             <div class="col-md-6 col-sm-6">
-                              <label class="control-label">Your Birth <span class="required">*</span>
+                              <label class="control-label">User Name <span class="required">*</span>
                               </label>
-                              <input type="text" class="wp-form-control wpcf7-text" placeholder="dd/mm/yy">
+                                <asp:TextBox class="wp-form-control wpcf7-text" placeholder="Enter Your User name" ID="txtregusername" runat="server"></asp:TextBox>
                             </div>
                             <div class="col-md-6 col-sm-6">
-                              <label class="control-label">Your Phone <span class="required">*</span>
+                              <label class="control-label">Password <span class="required">*</span>
                               </label>
-                              <input type="text" class="wp-form-control wpcf7-text" placeholder="Phone No">  
+                               <asp:TextBox class="wp-form-control wpcf7-text" placeholder="Enter Your Password" ID="txtregpassword" runat="server"></asp:TextBox>
+                            </div>
+                                <div class="col-md-6 col-sm-6">
+                              <label class="control-label">Re-Enter Password <span class="required">*</span>
+                              </label>
+                               <asp:TextBox class="wp-form-control wpcf7-text" placeholder="Re-Enter Your Password" ID="txtreenterpassword" runat="server"></asp:TextBox>
+                            </div>
+                         
+                          </div>
+
+                            <div class="row">
+                            <div class="col-md-6 col-sm-6">
+                              <label class="control-label">PCN Registration Number <span class="required">*</span>
+                              </label>
+                                <asp:TextBox Class="wp-form-control wpcf7-text" placeholder="Enter Your PCN Number" ID="txtpcn" runat="server"></asp:TextBox>
+                            </div>
+                            <div class="col-md-6 col-sm-6">
+                              <label class="control-label">Year Of Registration <span class="required">*</span>
+                              </label>
+                                <asp:DropDownList class="wp-form-control wpcf7-select" ID="ddlyearofreg"  runat="server"></asp:DropDownList>
                             </div>
                           </div>
+
+                            <div class="row">
+                            <div class="col-md-6 col-sm-6">
+                              <label class="control-label">Area Of Practice <span class="required">*</span>
+                              </label>
+                                <asp:TextBox class="wp-form-control wpcf7-text" placeholder="Enter Your Area of practice" ID="txtareaofpractice" runat="server"></asp:TextBox>
+                            </div>
+                            <div class="col-md-6 col-sm-6">
+                              <label class="control-label">Phone Number <span class="required">*</span>
+                              </label>
+                               <asp:TextBox class="wp-form-control wpcf7-text" placeholder="Enter Your Phone Number" ID="txtphone" runat="server"></asp:TextBox>
+                            </div>
+                          </div>
+
+
                           <div class="row">
                             <div class="col-md-6 col-sm-6">
-                              <label class="control-label">Appointment Date <span class="required">*</span>
+                              <label class="control-label">Email <span class="required">*</span>
                               </label>
-                              <input type="text" class="wp-form-control wpcf7-text" placeholder="dd/mm/yy">
+                              <asp:TextBox class="wp-form-control wpcf7-email" placeholder="Enter Your E-mail" ID="txtemail" runat="server"></asp:TextBox>
                             </div>
                             <div class="col-md-6 col-sm-6">
-                              <label class="control-label">Select Department <span class="required">*</span>
+                              <label class="control-label">State <span class="required">*</span>
                               </label>
-                              <select class="wp-form-control wpcf7-select">
-                                <option val="1">Dental</option>
-                                <option val="2">cardiology</option>
-                                <option val="3">neurology</option>
-                                <option val="4">Drugstore</option>
-                                <option val="5">x-ray</option>
-                                <option val="6">birth</option>
-                                <option val="7">general</option>
-                                <option val="8">testing</option>
-                                <option val="9">first-aid</option>
-                                <option val="10">immunizations</option><option val="11">pulmonary</option>
-                              </select> 
+                                    <asp:DropDownList class="wp-form-control wpcf7-select" ID="ddlstates" runat="server">
+                                    <asp:ListItem Text="Select State" Value="select"></asp:ListItem>
+                                    <asp:ListItem Text="Abuja" Value="Abuja"></asp:ListItem>
+                                    <asp:ListItem Text="Abia" Value="Abia"></asp:ListItem>
+                                    <asp:ListItem Text="Adamawa" Value="Adamawa"></asp:ListItem>
+                                    <asp:ListItem Text="Akwa Ibom" Value="Akwa Ibom"></asp:ListItem>
+                                    <asp:ListItem Text="Anambra" Value="Anambra"></asp:ListItem>
+                                    <asp:ListItem Text="Bauchi" Value="Bauchi"></asp:ListItem>
+                                    <asp:ListItem Text="Bayelsa" Value="Bayelsa"></asp:ListItem>
+                                    <asp:ListItem Text="Benue" Value="Benue"></asp:ListItem>
+                                    <asp:ListItem Text="Borno" Value="Borno"></asp:ListItem>
+                                    <asp:ListItem Text="Cross River" Value="Cross River"></asp:ListItem>
+                                    <asp:ListItem Text="Delta" Value="Delta"></asp:ListItem>
+                                    <asp:ListItem Text="Ebonyi" Value="Ebonyi"></asp:ListItem>
+                                    <asp:ListItem Text="Edo" Value="Edo"></asp:ListItem>
+                                    <asp:ListItem Text="Ekiti" Value="Ekiti"></asp:ListItem>
+                                    <asp:ListItem Text="Enugu" Value="Enugu"></asp:ListItem>
+                                    <asp:ListItem Text="Gombe" Value="Gombe"></asp:ListItem>
+                                    <asp:ListItem Text="Imo" Value="Imo"></asp:ListItem>
+                                    <asp:ListItem Text="Jigawa" Value="Jigawa"></asp:ListItem>
+                                    <asp:ListItem Text="Kaduna" Value="Kaduna"></asp:ListItem>
+                                    <asp:ListItem Text="Kano" Value="Kano"></asp:ListItem>
+                                    <asp:ListItem Text="Katsina" Value="Katsina"></asp:ListItem>
+                                    <asp:ListItem Text="Kebbi" Value="Kebbi"></asp:ListItem>
+                                    <asp:ListItem Text="Kogi" Value="Kogi"></asp:ListItem>
+                                    <asp:ListItem Text="Kwara" Value="Kwara"></asp:ListItem>
+                                    <asp:ListItem Text="Lagos" Value="Lagos"></asp:ListItem>
+                                    <asp:ListItem Text="Nassarawa" Value="Nassarawa"></asp:ListItem>
+                                    <asp:ListItem Text="Niger" Value="Niger"></asp:ListItem>
+                                    <asp:ListItem Text="Ogun" Value="Ogun"></asp:ListItem>
+                                    <asp:ListItem Text="Ondo" Value="Ondo"></asp:ListItem>
+                                    <asp:ListItem Text="Osun" Value="Osun"></asp:ListItem>
+                                    <asp:ListItem Text="Oyo" Value="Oyo"></asp:ListItem>
+                                    <asp:ListItem Text="Plateau" Value="Plateau"></asp:ListItem>
+                                    <asp:ListItem Text="Rivers" Value="Rivers"></asp:ListItem>
+                                    <asp:ListItem Text="Sokoto" Value="Sokoto"></asp:ListItem>
+                                    <asp:ListItem Text="Taraba" Value="Taraba"></asp:ListItem>
+                                    <asp:ListItem Text="Yobe" Value="Yobe"></asp:ListItem>
+                                    <asp:ListItem Text="Zamfara" Value="Zamfara"></asp:ListItem>
+                                    </asp:DropDownList>
+                              
                             </div>
-                          </div>         
-                          <input type="text" class="wp-form-control wpcf7-text" placeholder="Subject">
+                           </div>
+                          
+                          <div class="row">
+                            <div class="col-md-6 col-sm-6">
+                              <label class="control-label">Sex <span class="required">*</span>
+                              </label>
+                                <asp:RadioButton class="wp-form-control wpcf7-text" ID="rdbmale" GroupName="sex" Text="Male" Checked="true" runat="server" />
+                                <asp:RadioButton class="wp-form-control wpcf7-text" ID="rdbfemale" GroupName="sex" Text ="Female" runat="server" />
+                            </div>
+                          </div>  
+                            <asp:Label ID="lbmsg" runat="server" Text=""></asp:Label>
+                          <%--<input type="text" class="wp-form-control wpcf7-text" placeholder="Subject">
                           <textarea class="wp-form-control wpcf7-textarea" cols="30" rows="10" placeholder="What would you like to tell us"></textarea>
-                         <button class="wpcf7-submit button--itzel" type="submit"><i class="button__icon fa fa-share"></i><span>Book Appointment</span></button>  
+                          --%>
+                            <asp:LinkButton class="wpcf7-submit button--itzel" ID="LinkButton1" OnClick="LinkButton1_Click" runat="server"><i class="button__icon fa fa-share"></i><span>Submit</span></asp:LinkButton>
+                        </form>
+                      </div>
+                    </div>                    
+                  </div><!-- /.modal-content -->
+                </div><!-- /.modal-dialog -->
+              </div>            
+
+                <!--second modal window -->
+<div class="modal fade" id="mySecondModal" tabindex="-2" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                      <h4 class="modal-title" id="mySecondModalLabel">Login Form</h4>
+                    </div>
+                    <div class="modal-body">
+                      <div class="appointment-area">
+                        <form class="appointment-form">
+                          <div class="row">
+                            <div class="col-md-6 col-sm-6">
+                              <label class="control-label">User Name <span class="required">*</span>
+                              </label>
+                                <asp:TextBox class="wp-form-control wpcf7-text" placeholder="Enter Your user name or email" ID="txtusername" runat="server"></asp:TextBox>
+                            </div>
+                            <div class="col-md-6 col-sm-6">
+                              <label class="control-label">Password <span class="required">*</span>
+                              </label>
+                               <asp:TextBox class="wp-form-control wpcf7-text" placeholder="Enter Your password" ID="txtpassword" TextMode="Password" runat="server"></asp:TextBox>
+                            </div>
+                          </div>
+
+                                     
+                          <%--<input type="text" class="wp-form-control wpcf7-text" placeholder="Subject">
+                          <textarea class="wp-form-control wpcf7-textarea" cols="30" rows="10" placeholder="What would you like to tell us"></textarea>
+                          --%>  
+                            <asp:LinkButton class="wpcf7-submit button--itzel" ID="LinkButton3" OnClick="LinkButton3_Click" runat="server"><i class="button__icon fa fa-share"></i><span>Login</span></asp:LinkButton>
                         </form>
                       </div>
                     </div>                    
                   </div><!-- /.modal-content -->
                 </div><!-- /.modal-dialog -->
               </div>            </div>
+
+                <!-- end of second modal window
+
+            </div>
           </div>
         </div>
         <!-- End Single Top Feature -->
@@ -132,581 +249,5 @@
     </section>
     <!--=========== END Top Feature SECTION ================-->
 
-    <!--=========== BEGIN Service SECTION ================-->
-    <section id="service">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-12 col-md-12">
-            <div class="service-area">
-              <!-- Start Service Title -->
-              <div class="section-heading">
-                <h2>Our Services</h2>
-                <div class="line"></div>
-              </div>
-              <!-- Start Service Content -->
-              <div class="service-content">
-                <div class="row">
-                  <!-- Start Single Service -->
-                  <div class="col-lg-4 col-md-4">
-                    <div class="single-service">
-                      <div class="service-icon">
-                        <span class="fa fa-stethoscope service-icon-effect"></span>  
-                      </div>                      
-                      <h3><a href="#">Cardio Monitoring</a></h3>
-                      <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour</p>
-                    </div>
-                  </div>
-                  <!-- Start Single Service -->
-                  <div class="col-lg-4 col-md-4">
-                    <div class="single-service">
-                      <div class="service-icon">
-                        <span class="fa fa-heartbeat service-icon-effect"></span>  
-                      </div>                      
-                      <h3><a href="#">Rehabilitation Therapy</a></h3>
-                      <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour</p>
-                    </div>
-                  </div>
-                  <!-- Start Single Service -->
-                  <div class="col-lg-4 col-md-4">
-                    <div class="single-service">
-                      <div class="service-icon">
-                        <span class="fa fa-h-square service-icon-effect"></span>  
-                      </div>                      
-                      <h3><a href="#">Medical Health Care</a></h3>
-                      <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour</p>
-                    </div>
-                  </div>
-                  <!-- Start Single Service -->
-                  <div class="col-lg-4 col-md-4">
-                    <div class="single-service">
-                      <div class="service-icon">
-                        <span class="fa fa-medkit service-icon-effect"></span>  
-                      </div>                      
-                      <h3><a href="#">Background Checks</a></h3>
-                      <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour</p>
-                    </div>
-                  </div>
-                  <!-- Start Single Service -->
-                  <div class="col-lg-4 col-md-4">
-                    <div class="single-service">
-                      <div class="service-icon">
-                        <span class="fa fa-user-md service-icon-effect"></span>  
-                      </div>                      
-                      <h3><a href="#">Special Doctor</a></h3>
-                      <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour</p>
-                    </div>
-                  </div>
-                  <!-- Start Single Service -->
-                  <div class="col-lg-4 col-md-4">
-                    <div class="single-service">
-                      <div class="service-icon">
-                        <span class="fa fa-ambulance service-icon-effect"></span>  
-                      </div>                      
-                      <h3><a href="#">24 Hours Service</a></h3>
-                      <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!--=========== End Service SECTION ================-->
-
-    <!--=========== BEGAIN Why Choose Us SECTION ================-->
-    <section id="whychooseSection">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-12 col-md-12">
-            <div class="service-area">
-              <!-- Start Service Title -->
-              <div class="section-heading">
-                <h2>Why Choose Us</h2>
-                <div class="line"></div>
-              </div>              
-            </div>
-          </div>
-          <div class="col-lg-12 col-md-12">
-            <div class="row">
-              <div class="col-lg-5 col-md-6 col-sm-6 col-xs-12">
-                <div class="whyChoose-left">
-                  <div class="whychoose-slider">
-                    <div class="whychoose-singleslide">
-                      <img src="images/choose-us-img1.jpg" alt="img">
-                    </div>
-                    <div class="whychoose-singleslide">
-                      <img src="images/choose-us-img2.jpg" alt="img">
-                    </div>
-                    <div class="whychoose-singleslide">
-                      <img src="images/choose-us-img3.jpg" alt="img">
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-lg-7 col-md-6 col-sm-6 col-xs-12">
-                <div class="whyChoose-right">
-                  <div class="media">
-                    <div class="media-left">
-                      <a href="#" class="media-icon">
-                        <span class="fa fa-hospital-o"></span>
-                      </a>
-                    </div>
-                    <div class="media-body">
-                      <h4 class="media-heading">Great Infrastructure</h4>
-                      <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>  
-                    </div>
-                  </div>
-                  <div class="media">
-                    <div class="media-left">
-                      <a href="#" class="media-icon">
-                        <span class="fa fa-user-md"></span>
-                      </a>
-                    </div>
-                    <div class="media-body">
-                      <h4 class="media-heading">Qualified Doctors</h4>
-                      <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>  
-                    </div>
-                  </div>
-                  <div class="media">
-                    <div class="media-left">
-                      <a href="#" class="media-icon">
-                        <span class="fa fa-ambulance"></span>
-                      </a>
-                    </div>
-                    <div class="media-body">
-                      <h4 class="media-heading">Emergency Support</h4>
-                      <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>  
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>          
-        </div>
-      </div>
-    </section>
-    <!--=========== END Why Choose Us SECTION ================-->
-  
-    <!--=========== BEGAIN Counter SECTION ================-->
-    <section id="counterSection">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-12 col-md-12">
-            <div class="counter-area">
-              <div class="col-lg-3 col-md-3 col-sm-6">
-                <div class="counter-box">
-                  <div class="counter-no counter">
-                    200
-                  </div>
-                  <div class="counter-label">Doctors</div>
-                </div>
-              </div>
-              <div class="col-lg-3 col-md-3 col-sm-6">
-                 <div class="counter-box">
-                  <div class="counter-no counter">
-                    300
-                  </div>
-                  <div class="counter-label">Clinic Rooms</div>
-                </div>
-              </div>
-              <div class="col-lg-3 col-md-3 col-sm-6">
-                 <div class="counter-box">
-                  <div class="counter-no counter">
-                    350
-                  </div>
-                  <div class="counter-label">Awards</div>
-                </div>
-              </div>
-              <div class="col-lg-3 col-md-3 col-sm-6">
-                 <div class="counter-box">
-                  <div class="counter-no counter">
-                    450
-                  </div>
-                  <div class="counter-label">Happy Patients</div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!--=========== End Counter SECTION ================-->
-
-    <!--=========== BEGAIN Doctors SECTION ================-->
-    <section id="meetDoctors">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-12 col-md-12">
-            <div class="meetDoctors-area">
-             <!-- Start Service Title -->
-              <div class="section-heading">
-                <h2>Meet Our Doctors</h2>
-                <div class="line"></div>
-              </div>
-              <div class="doctors-area">
-                <ul class="doctors-nav">
-                  <li>
-                    <div class="single-doctor">
-                      <a class="tdoctor" href="#" data-path-hover="m 180,34.57627 -180,0 L 0,0 180,0 z">
-                        <figure>
-                          <img src="images/doctor-1.jpg" />
-                          <svg viewBox="0 0 180 320" preserveAspectRatio="none"><path d="M 180,160 0,218 0,0 180,0 z"/></svg>
-                          <figcaption>
-                            <h2>Dr. Yvonne Cadiline</h2>
-                            <p>Pediatric Clinic</p>
-                            <button>View</button>             
-                          </figcaption>
-                        </figure>
-                      </a>
-                      <div class="single-doctor-social">
-                        <a href="#"><span class="fa fa-facebook"></span></a>
-                        <a href="#"><span class="fa fa-twitter"></span></a>
-                        <a href="#"><span class="fa fa-google-plus"></span></a>
-                        <a href="#"><span class="fa fa-linkedin"></span></a>
-                      </div>
-                    </div>
-                  </li>
-                  <li>
-                    <div class="single-doctor">
-                      <div class="single-doctor">
-                      <a class="tdoctor" href="#" data-path-hover="m 180,34.57627 -180,0 L 0,0 180,0 z">
-                        <figure>
-                          <img src="images/doctor-2.jpg" />
-                          <svg viewBox="0 0 180 320" preserveAspectRatio="none"><path d="M 180,160 0,218 0,0 180,0 z"/></svg>
-                          <figcaption>
-                            <h2>DR. Jack Johnson</h2>
-                            <p>Rehabilitation Therapy</p>
-                            <button>View</button>             
-                          </figcaption>
-                        </figure>
-                      </a>
-                      <div class="single-doctor-social">
-                        <a href="#"><span class="fa fa-facebook"></span></a>
-                        <a href="#"><span class="fa fa-twitter"></span></a>
-                        <a href="#"><span class="fa fa-google-plus"></span></a>
-                        <a href="#"><span class="fa fa-linkedin"></span></a>
-                      </div>
-                    </div>
-                    </div>
-                  </li>
-                  <li>
-                    <div class="single-doctor">
-                      <div class="single-doctor">
-                      <a class="tdoctor" href="#" data-path-hover="m 180,34.57627 -180,0 L 0,0 180,0 z">
-                        <figure>
-                          <img src="images/doctor-3.jpg" />
-                          <svg viewBox="0 0 180 320" preserveAspectRatio="none"><path d="M 180,160 0,218 0,0 180,0 z"/></svg>
-                          <figcaption>
-                            <h2>Dr. Vanessa Smouic</h2>
-                            <p>Cardiac Clinic</p>
-                            <button>View</button>             
-                          </figcaption>
-                        </figure>
-                      </a>
-                      <div class="single-doctor-social">
-                        <a href="#"><span class="fa fa-facebook"></span></a>
-                        <a href="#"><span class="fa fa-twitter"></span></a>
-                        <a href="#"><span class="fa fa-google-plus"></span></a>
-                        <a href="#"><span class="fa fa-linkedin"></span></a>
-                      </div>
-                    </div>
-                    </div>
-                  </li>
-                  <li>
-                    <div class="single-doctor">
-                      <div class="single-doctor">
-                      <a class="tdoctor" href="#" data-path-hover="m 180,34.57627 -180,0 L 0,0 180,0 z">
-                        <figure>
-                          <img src="images/doctor-5.jpg" />
-                          <svg viewBox="0 0 180 320" preserveAspectRatio="none"><path d="M 180,160 0,218 0,0 180,0 z"/></svg>
-                          <figcaption>
-                            <h2>Dr. David Gresshoff</h2>
-                            <p>Laryngological Clinic</p>
-                            <button>View</button>             
-                          </figcaption>
-                        </figure>
-                      </a>
-                      <div class="single-doctor-social">
-                        <a href="#"><span class="fa fa-facebook"></span></a>
-                        <a href="#"><span class="fa fa-twitter"></span></a>
-                        <a href="#"><span class="fa fa-google-plus"></span></a>
-                        <a href="#"><span class="fa fa-linkedin"></span></a>
-                      </div>
-                    </div>
-                    </div>
-                  </li>
-                   <li>
-                    <div class="single-doctor">
-                      <a class="tdoctor" href="#" data-path-hover="m 180,34.57627 -180,0 L 0,0 180,0 z">
-                        <figure>
-                          <img src="images/doctor-1.jpg" />
-                          <svg viewBox="0 0 180 320" preserveAspectRatio="none"><path d="M 180,160 0,218 0,0 180,0 z"/></svg>
-                          <figcaption>
-                            <h2>Dr. Yvonne Cadiline</h2>
-                            <p>Pediatric Clinic</p>
-                            <button>View</button>             
-                          </figcaption>
-                        </figure>
-                      </a>
-                      <div class="single-doctor-social">
-                        <a href="#"><span class="fa fa-facebook"></span></a>
-                        <a href="#"><span class="fa fa-twitter"></span></a>
-                        <a href="#"><span class="fa fa-google-plus"></span></a>
-                        <a href="#"><span class="fa fa-linkedin"></span></a>
-                      </div>
-                    </div>
-                  </li>
-                  <li>
-                    <div class="single-doctor">
-                      <div class="single-doctor">
-                      <a class="tdoctor" href="#" data-path-hover="m 180,34.57627 -180,0 L 0,0 180,0 z">
-                        <figure>
-                          <img src="images/doctor-2.jpg" />
-                          <svg viewBox="0 0 180 320" preserveAspectRatio="none"><path d="M 180,160 0,218 0,0 180,0 z"/></svg>
-                          <figcaption>
-                            <h2>DR. Jack Johnson</h2>
-                            <p>Rehabilitation Therapy</p>
-                            <button>View</button>             
-                          </figcaption>
-                        </figure>
-                      </a>
-                      <div class="single-doctor-social">
-                        <a href="#"><span class="fa fa-facebook"></span></a>
-                        <a href="#"><span class="fa fa-twitter"></span></a>
-                        <a href="#"><span class="fa fa-google-plus"></span></a>
-                        <a href="#"><span class="fa fa-linkedin"></span></a>
-                      </div>
-                    </div>
-                    </div>
-                  </li>
-                  <li>
-                    <div class="single-doctor">
-                      <div class="single-doctor">
-                      <a class="tdoctor" href="#" data-path-hover="m 180,34.57627 -180,0 L 0,0 180,0 z">
-                        <figure>
-                          <img src="images/doctor-3.jpg" />
-                          <svg viewBox="0 0 180 320" preserveAspectRatio="none"><path d="M 180,160 0,218 0,0 180,0 z"/></svg>
-                          <figcaption>
-                            <h2>Dr. Vanessa Smouic</h2>
-                            <p>Cardiac Clinic</p>
-                            <button>View</button>             
-                          </figcaption>
-                        </figure>
-                      </a>
-                      <div class="single-doctor-social">
-                        <a href="#"><span class="fa fa-facebook"></span></a>
-                        <a href="#"><span class="fa fa-twitter"></span></a>
-                        <a href="#"><span class="fa fa-google-plus"></span></a>
-                        <a href="#"><span class="fa fa-linkedin"></span></a>
-                      </div>
-                    </div>
-                    </div>
-                  </li>
-                  <li>
-                    <div class="single-doctor">
-                      <div class="single-doctor">
-                      <a class="tdoctor" href="#" data-path-hover="m 180,34.57627 -180,0 L 0,0 180,0 z">
-                        <figure>
-                          <img src="images/doctor-5.jpg" />
-                          <svg viewBox="0 0 180 320" preserveAspectRatio="none"><path d="M 180,160 0,218 0,0 180,0 z"/></svg>
-                          <figcaption>
-                            <h2>Dr. David Gresshoff</h2>
-                            <p>Laryngological Clinic</p>
-                            <button>View</button>             
-                          </figcaption>
-                        </figure>
-                      </a>
-                      <div class="single-doctor-social">
-                        <a href="#"><span class="fa fa-facebook"></span></a>
-                        <a href="#"><span class="fa fa-twitter"></span></a>
-                        <a href="#"><span class="fa fa-google-plus"></span></a>
-                        <a href="#"><span class="fa fa-linkedin"></span></a>
-                      </div>
-                    </div>
-                    </div>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!--=========== End Doctors SECTION ================-->
-
-    <!--=========== BEGAIN Testimonial SECTION ================-->
-    <section id="testimonial">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-12 col-md-12">
-            <div class="testimonial-area">
-             <!-- Start Service Title -->
-              <div class="section-heading">
-                <h2>What our patients said</h2>
-                <div class="line"></div>
-              </div>
-              <div class="testimonial-area">
-                <ul class="testimonial-nav">
-                  <li>
-                    <div class="single-testimonial">
-                      <div class="testimonial-img">
-                        <img src="images/patients-3.jpg" alt="img">
-                      </div>
-                      <div class="testimonial-cotent">
-                        <p class="testimonial-parg">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.There are many variations of passages of Lorem Ipsum available.</p>
-                      </div>
-                    </div>
-                  </li> 
-                  <li>
-                    <div class="single-testimonial">
-                      <div class="testimonial-img">
-                        <img src="images/patients-1.jpg" alt="img">
-                      </div>
-                      <div class="testimonial-cotent">
-                        <p class="testimonial-parg">There are many variations of passages of Lorem Ipsum available.Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
-                      </div>
-                    </div>
-                  </li> 
-                  <li>
-                    <div class="single-testimonial">
-                      <div class="testimonial-img">
-                        <img src="images/patients-2.jpg" alt="img">
-                      </div>
-                      <div class="testimonial-cotent">
-                        <p class="testimonial-parg">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.There are many variations of passages of Lorem Ipsum available.</p>
-                      </div>
-                    </div>
-                  </li>                 
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!--=========== End Testimonial SECTION ================-->
-
-    <!--=========== BEGAIN Home Blog SECTION ================-->
-    <section id="homeBLog">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-12 col-md-12">
-            <div class="homBlog-area">
-             <!-- Start Service Title -->
-              <div class="section-heading">
-                <h2>News From Blog</h2>
-                <div class="line"></div>
-              </div> 
-              <!-- Start Home Blog Content -->
-              <div class="homeBlog-content">
-                <div class="row">
-                  <!-- Start Single Blog -->
-                  <div class="col-lg-4 col-md-4 col-sm-4">
-                    <div class="single-Blog">
-                      <div class="single-blog-left">
-                        <ul class="blog-comments-box">
-                          <li>May <h2>10</h2>2015</li>
-                          <li><span class="fa fa-eye"></span>1523</li>
-                          <li><a href="#"><span class="fa fa-comments"></span>5</a></li>
-                        </ul>
-                      </div>
-                      <div class="single-blog-right">
-                        <div class="blog-img">
-                          <figure class="blog-figure">
-                           <a href="#"><img src="images/choose-us-img3.jpg" alt="img"></a>
-                            <span class="image-effect"></span>
-                          </figure>
-                        </div>
-                        <div class="blog-author">
-                          <ul>
-                            <li>By <a href="#">Dr. Smith</a></li>
-                            <li>In <a href="#">Dental</a></li>
-                          </ul>
-                        </div>
-                        <div class="blog-content">
-                          <h2>Latest Trend Of Medical Dental Department</h2>
-                          <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.</p>
-                          <div class="readmore_area">
-                            <a href="#" data-hover="Read More"><span>Read More</span></a>                
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                   <!-- Start Single Blog -->
-                  <div class="col-lg-4 col-md-4 col-sm-4">
-                    <div class="single-Blog">
-                      <div class="single-blog-left">
-                        <ul class="blog-comments-box">
-                          <li>May <h2>10</h2>2015</li>
-                          <li><span class="fa fa-eye"></span>1523</li>
-                          <li><a href="#"><span class="fa fa-comments"></span>5</a></li>
-                        </ul>
-                      </div>
-                      <div class="single-blog-right">
-                         <div class="blog-img">
-                          <figure class="blog-figure">
-                           <a href="#"><img src="images/choose-us-img3.jpg" alt="img"></a>
-                            <span class="image-effect"></span>
-                          </figure>
-                        </div>
-                        <div class="blog-author">
-                          <ul>
-                            <li>By <a href="#">Dr. Smith</a></li>
-                            <li>In <a href="#">Dental</a></li>
-                          </ul>
-                        </div>
-                        <div class="blog-content">
-                          <h2>Latest Trend Of Medical Dental Department</h2>
-                          <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.</p>
-                          <div class="readmore_area">
-                            <a href="#" data-hover="Read More"><span>Read More</span></a>                
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                   <!-- Start Single Blog -->
-                  <div class="col-lg-4 col-md-4 col-sm-4">
-                    <div class="single-Blog">
-                      <div class="single-blog-left">
-                        <ul class="blog-comments-box">
-                          <li>May <h2>10</h2>2015</li>
-                          <li><span class="fa fa-eye"></span>1523</li>
-                          <li><a href="#"><span class="fa fa-comments"></span>5</a></li>
-                        </ul>
-                      </div>
-                      <div class="single-blog-right">
-                         <div class="blog-img">
-                          <figure class="blog-figure">
-                           <a href="#"><img src="images/choose-us-img3.jpg" alt="img"></a>
-                            <span class="image-effect"></span>
-                          </figure>
-                        </div>
-                        <div class="blog-author">
-                          <ul>
-                            <li>By <a href="#">Dr. Smith</a></li>
-                            <li>In <a href="#">Dental</a></li>
-                          </ul>
-                        </div>
-                        <div class="blog-content">
-                          <h2>Latest Trend Of Medical Dental Department</h2>
-                          <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.</p>
-                          <div class="readmore_area">
-                            <a href="#" data-hover="Read More"><span>Read More</span></a>                
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>             
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
+    
 </asp:Content>

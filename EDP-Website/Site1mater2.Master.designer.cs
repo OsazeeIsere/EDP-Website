@@ -10,7 +10,7 @@
 namespace EDP_Website {
     
     
-    public partial class Sitemaster {
+    public partial class Site1mater2 {
         
         /// <summary>
         /// switcher control.
@@ -47,6 +47,15 @@ namespace EDP_Website {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lbmsgsuccess;
+        
+        /// <summary>
+        /// btnstartreg control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton btnstartreg;
         
         /// <summary>
         /// ContentPlaceHolder1 control.

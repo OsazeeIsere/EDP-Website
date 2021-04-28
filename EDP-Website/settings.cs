@@ -7,7 +7,7 @@ namespace EDP_Website
 {
     public class settings
     {
-        private System.Data.DataTable getdatabase(string strcommand)
+        public System.Data.DataTable getdatabase(string strcommand)
         {
             System.Data.DataTable tempgetdatabase = null;
             tempgetdatabase = new System.Data.DataTable();
@@ -15,7 +15,7 @@ namespace EDP_Website
             MySql.Data.MySqlClient.MySqlDataAdapter ad = new MySql.Data.MySqlClient.MySqlDataAdapter();
             MySql.Data.MySqlClient.MySqlCommand cm = new MySql.Data.MySqlClient.MySqlCommand();
             string strconnection = "";
-            strconnection = "Server=localhost;Port=3306;Database=onlinesalesdb;Uid=root;Pwd=prayer;";
+            strconnection = "Server=localhost;Port=3306;Database=psndb;Uid=root;Pwd=prayer;";
             cn.ConnectionString = strconnection;
             cn.Open();
             cm.CommandText = strcommand;
@@ -34,7 +34,7 @@ namespace EDP_Website
             MySql.Data.MySqlClient.MySqlCommand cm = new MySql.Data.MySqlClient.MySqlCommand();
 
             string strconnection = "";
-            strconnection = "server= localhost;port=3306;database=onlinesalesdb;uid=root;pwd=prayer";
+            strconnection = "server= localhost;port=3306;database=psndb;uid=root;pwd=prayer";
             cn.ConnectionString = strconnection;
             cn.Open();
             cm.CommandText = strinsert;
