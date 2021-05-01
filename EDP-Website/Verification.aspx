@@ -52,9 +52,9 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]--> 
 
-        -->
+      
 
-</h
+
 </head>
 <body>
     <form id="form1" runat="server">
@@ -94,6 +94,8 @@
               <ul id="top-menu" class="nav navbar-nav navbar-right main-nav">
                 <li class="active"><a href="index.aspx">Home</a></li>
               <li><a href="paymentdetails.aspx">Upload Payment Details</a></li>
+              <li id="verificationpage" runat="server"><a href="Verification.aspx">Payment Verification</a></li>
+              <li id="logoutpage" runat="server"><a href="index.aspx">Log Out</a></li>
 
                   <!--
                 <li><a href="about-us.html">About Us</a></li>

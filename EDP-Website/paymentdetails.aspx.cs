@@ -42,7 +42,7 @@ namespace EDP_Website
                 //}
                 else
                 {
-                    x.adddata("Insert Into payment(accountname,bank,paymentmethod,tellernumber,date,amount,fullname,email,status) Values('" + txtaccountname.Text + "','" + ddlbank.Text + "','" + ddlmethod.Text + "','" + txtteller.Text + "','" + txtdate.Text + "','" + txtamout.Text + "','" + Session["fullname"].ToString() + "','" + Session["email"].ToString() + "','" + "Not Yet Verified" + "')");
+                    x.adddata("Insert Into payment(accountname,bank,paymentmethod,tellernumber,date,amount,fullname,email,status,memberid) Values('" + txtaccountname.Text + "','" + ddlbank.Text + "','" + ddlmethod.Text + "','" + txtteller.Text + "','" + txtdate.Text + "','" + txtamout.Text + "','" + Session["fullname"].ToString() + "','" + Session["email"].ToString() + "','" + "Not Yet Verified" + "', '" + Session["memberid"].ToString() + "')");
                     lbmsg.Text = Session["fullname"].ToString() + "!"+"  " + "Your Payment Details are Sucessfully Uploaded";
                     txtaccountname.Text = "";
                     txtamout.Text = "";

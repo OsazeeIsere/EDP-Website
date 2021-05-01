@@ -12,6 +12,16 @@ namespace EDP_Website
         settings x = new settings();
         protected void Page_Load(object sender, EventArgs e)
         {
+            if(Session["status"].ToString()=="Admin")
+            {
+                verificationpage.Visible = true;
+                logoutpage.Visible = true;
+            }
+            else if(Session["status"].ToString() == "Member")
+            {
+                logoutpage.Visible = true;
+                verificationpage.Visible = false;
+            }
             System.Data.DataTable dtmember = new System.Data.DataTable();
             System.Data.DataTable dtpayment = new System.Data.DataTable();
             System.Data.DataTable dtpayment1 = new System.Data.DataTable();

@@ -6,7 +6,7 @@
     <h3 style="color:orange"><asp:Label ID="lbmsg" runat="server" Text=""></asp:Label></h3>
 <div class="col-lg-4 col-md-4" style="align-self:auto">
                                   <div class="row">
-                                      <h3 style="text-align:center">Please Is The Following Payment Already Verified</h3>
+                                      <h3 style="text-align:center">Please Is The Following Payment Already Verified?</h3>
                                       <hr style="color:sandybrown" />
                                       </div>
                         <form class="appointment-form">
@@ -54,8 +54,15 @@
                           <%--<input type="text" class="wp-form-control wpcf7-text" placeholder="Subject">
                           <textarea class="wp-form-control wpcf7-textarea" cols="30" rows="10" placeholder="What would you like to tell us"></textarea>
                           --%>
-                            <asp:LinkButton class="wpcf7-submit button--itzel" ID="giveclearance" OnClick="giveclearance_Click" runat="server"><i class="button__icon fa fa-share"></i><span>Payment Verified</span></asp:LinkButton>
-                        </form>
+                             <div class="row">
+                                 <div class="col-md-6 col-sm-6">
+                            <asp:LinkButton class="wpcf7-submit button--itzel" ID="giveclearance" OnClick="giveclearance_Click" runat="server"><i class="button__icon fa fa-share"></i><span style="text-align:center">Yes</span></asp:LinkButton>
+                        </div>
+                               <div class="col-md-6 col-sm-6">
+                                 <asp:LinkButton class="wpcf7-submit button--itzel" ID="btnno" OnClick="btnno_Click" runat="server"><i class="button__icon fa fa-share"></i><span style="text-align:center">No</span></asp:LinkButton>
+                                </div>   
+                               </div>
+                                 </form>
                       </div>
 
 </asp:Content>

@@ -85,7 +85,7 @@ namespace EDP_Website
                         Session["password"] = txtpassword.Text;
                         Session["memberid"] = dtmember.Rows[0]["memberid"].ToString();
                         Session["fullname"] = dtmember.Rows[0]["firstname"].ToString() + " " + dtmember.Rows[0]["othernames"].ToString() + " " + dtmember.Rows[0]["lastname"].ToString();
-                        Session["email"] = dtmember.Rows[0]["email"].ToString();
+                        Session["loginemail"] = dtmember.Rows[0]["email"].ToString();
                         Session["status"] = dtmember.Rows[0]["status"].ToString();
                     }
                 }
