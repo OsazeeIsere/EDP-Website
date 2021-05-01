@@ -11,6 +11,7 @@ namespace EDP_Website
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            lbmsg.Text = "You Are Welcome! " + "  " + Session["fullname"].ToString();
 
         }
 

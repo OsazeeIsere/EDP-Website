@@ -4,7 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-
+using System.Net;
+using System.Net.Mail;
 namespace EDP_Website
 {
     public partial class index : System.Web.UI.Page
@@ -17,6 +18,7 @@ namespace EDP_Website
                 //Reference the DropDownList.
                 //Determine the Current Year.
                 var currentYear = DateTime.Now.Year;
+                ddlyearofreg.Items.Add("select year of regisration");
                 ddlyearofreg.Items.Add("Select Your Year Of Registration");
                 //Loop and add the Year values to DropDownList.
                 for (var i = 1950; i <= currentYear; i++)
@@ -69,18 +71,47 @@ namespace EDP_Website
                     {
                         sexvalue = "Female";
                     }
-                    x.adddata("Insert Into member(firstname,lastname,username,password,pcnnumber,yearofregistration,area,phone,email,state,sex) Values('" + txtfirstname.Text + "','" + txtlastname.Text + "','" + txtregusername.Text + "','" + txtregpassword.Text + "','" + txtpcn.Text + "','" + ddlyearofreg.Text + "','" + txtareaofpractice.Text + "','" + txtphone.Text + "','" + txtemail.Text + "','" + ddlstates.Text + "','" + sexvalue + "')");
+                    x.adddata("Insert Into member(firstname,lastname,username,password,pcnnumber,yearofregistration,area,phone,email,lga,sex,othernames,status) Values('" + txtfirstname.Text + "','" + txtlastname.Text + "','" + txtregusername.Text + "','" + txtregpassword.Text + "','" + txtpcn.Text + "','" + ddlyearofreg.Text + "','" + ddlareaofpractice.Text + "','" + txtphone.Text + "','" + txtemail.Text + "','" + ddlstates.Text + "','" + sexvalue + "','" + txtothernames.Text + "','" + ddlstatus.Text + "')");
                     //    x.audit(Convert.ToString(Session["username"]), "courses", "all", "Course Creation", Convert.ToInt32(Session["adminid"]));
                     //    txtcoursecode.Text = "";
-                    //    txtcoursetitle.Text = "";
+                    //    txtcoursetitle.Text = ""; where product_name='"+x+"';";
                     //    txtcoursecode.Text = "";
-                    //    lbmsg.Text = "The Course is Registered";
+                    System.Data.DataTable dtmember = new System.Data.DataTable();
+                    dtmember = x.getdatabase ("Select * From member where email='" + txtemail.Text +"'");
+                    if (dtmember.Rows.Count > 0)
+                    {
+                        lbmsg.Text = "   " + "Successfully Registered. You Are Welcome!";
+                        Session["username"] = txtusername.Text;
+                        Session["password"] = txtpassword.Text;
+                        Session["memberid"] = dtmember.Rows[0]["memberid"].ToString();
+                        Session["fullname"] = dtmember.Rows[0]["firstname"].ToString() + " " + dtmember.Rows[0]["othernames"].ToString() + " " + dtmember.Rows[0]["lastname"].ToString();
+                        Session["email"] = dtmember.Rows[0]["email"].ToString();
+                        Session["status"] = dtmember.Rows[0]["status"].ToString();
+                    }
                 }
             }
             catch (Exception ex)
             {
                 lbmsg.Text = ex.ToString();
             }
+            txtemail.Text = "";
+            txtfirstname.Text = "";
+            txtlastname.Text = "";
+            txtothernames.Text = "";
+            txtpassword.Text = "";
+            txtpcn.Text = "";
+            txtphone.Text = "";
+            txtreenterpassword.Text = "";
+            txtregpassword.Text = "";
+            txtregusername.Text = "";
+            txtusername.Text = "";
+            ddlareaofpractice.Text = "";
+            ddlstates.Text = "";
+            ddlstatus.Text = "";
+            ddlyearofreg.Text = "select year of regisration";
+            rdbfemale.Text = "";
+            rdbmale.Text = "";
+
 
 
             //lbmsgsuccess.Text = "Successful";
@@ -116,6 +147,36 @@ namespace EDP_Website
                     }
                 }
             }
+        }
+
+        protected void btnsendmail_Click(object sender, EventArgs e)
+        {
+            try { 
+            MailMessage msg = new MailMessage();
+            msg.To.Add("stephanieisere@gmial.com");
+            msg.From = new MailAddress("oz1.concepts@gmail.com");
+            msg.Subject = "Payment Verified";
+            msg.Body ="<h2> I Love U dear</h2>";
+                msg.IsBodyHtml = true;
+
+                // using (SmtpClient smtp = new SmtpClient("smtp.gmail.com", 465)) { 
+                SmtpClient client1 = new SmtpClient();
+                client1.EnableSsl = true;
+                client1.Send(msg);
+
+               // smtp.Host = "relay-hosting-secureserver.net";
+           // smtp.Port = 25;
+          //  smtp.Credentials = new System.Net.NetworkCredential("oz1.concepts@gmail.com", "prayer2JAH");
+               // smtp.Send(msg);
+            lblmsg.Text = "message sent successfully";
+                
+            }
+            catch(Exception ex)
+            {
+                lblmsg.Text = ex.ToString();
+            }
+
+
         }
     }
 }

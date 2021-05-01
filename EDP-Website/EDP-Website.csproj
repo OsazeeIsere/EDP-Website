@@ -68,6 +68,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Clearance.aspx" />
     <Content Include="contact.aspx" />
     <Content Include="css\bootstrap.min.css" />
     <Content Include="css\default-skin.css" />
@@ -239,9 +240,17 @@
     <Content Include="PSNLOGO2.png" />
     <Content Include="registration.aspx" />
     <Content Include="style.css" />
+    <Content Include="Verification.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Clearance.aspx.cs">
+      <DependentUpon>Clearance.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Clearance.aspx.designer.cs">
+      <DependentUpon>Clearance.aspx</DependentUpon>
+    </Compile>
     <Compile Include="contact.aspx.cs">
       <DependentUpon>contact.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -299,6 +308,13 @@
     </Compile>
     <Compile Include="Sitemaster.Master.designer.cs">
       <DependentUpon>Sitemaster.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Verification.aspx.cs">
+      <DependentUpon>Verification.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Verification.aspx.designer.cs">
+      <DependentUpon>Verification.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

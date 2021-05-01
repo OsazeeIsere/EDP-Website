@@ -3,7 +3,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
-    <h2><asp:Label ID="lbmsg" runat="server" Text=""></asp:Label></h2>
+    <h3 style="color:orange"><asp:Label ID="lbmsg" runat="server" Text=""></asp:Label></h3>
 <div class="col-lg-4 col-md-4" style="align-self:auto">
                                   <div class="row">
                                       <h3 style="text-align:center">Please Enter Your Payment Details</h3>
@@ -14,35 +14,36 @@
                             <div class="col-md-6 col-sm-6">
                               <label class="control-label">Sender Account Name <span class="required">*</span>
                               </label>
-                                <asp:TextBox class="wp-form-control wpcf7-text" placeholder="Enter The Account name" ID="txtaccountname" runat="server"></asp:TextBox>
+                                <asp:TextBox class="wp-form-control wpcf7-text" placeholder="Enter The Account name" ID="txtaccountname" runat="server" TextMode="MultiLine"></asp:TextBox>
                             </div>
                             <div class="col-md-6 col-sm-6">
                               <label class="control-label">Bank<span class="required">*</span>
                               </label>
                                 <asp:DropDownList class="wp-form-control wpcf7-select" ID="ddlbank" runat="server">
                                     <asp:ListItem Text="Select " Value="select"></asp:ListItem>
-                                    <asp:ListItem Text="Method 1" Value="Method 1"></asp:ListItem>
-                                    <asp:ListItem Text="Method 2" Value="Method 2"></asp:ListItem>
-                                    <asp:ListItem Text="Method 3" Value="Method 3"></asp:ListItem>
+                                    <asp:ListItem Text="FirstBank " Value="FirstBank"></asp:ListItem>
+                                    <asp:ListItem Text="Zenith" Value="Zenith"></asp:ListItem>
+                                    <asp:ListItem Text="GTBank" Value="GTBank"></asp:ListItem>
                                     </asp:DropDownList>
                                  </div>
                           </div>
 
                             <div class="row">
                             <div class="col-md-6 col-sm-6">
-                              <label class="control-label">Teller Number 
+                              <label class="control-label">Teller Number/Transaction Ref.No 
                               </label>
-                                <asp:TextBox class="wp-form-control wpcf7-text" placeholder="Enter Teller if there is" ID="txtteller" runat="server"></asp:TextBox>
+                                <asp:TextBox class="wp-form-control wpcf7-text" placeholder="Teller or transaction Ref.No" ID="txtteller" runat="server"></asp:TextBox>
                             </div>
                             <div class="col-md-6 col-sm-6">
                               <label class="control-label">Pament Method <span class="required">*</span>
                               </label>
                                 <asp:DropDownList class="wp-form-control wpcf7-select" ID="ddlmethod" runat="server">
                                     <asp:ListItem Text="Select " Value="select"></asp:ListItem>
-                                    <asp:ListItem Text="Method 1" Value="Method 1"></asp:ListItem>
-                                    <asp:ListItem Text="Method 2" Value="Method 2"></asp:ListItem>
-                                    <asp:ListItem Text="Method 3" Value="Method 3"></asp:ListItem>
-                                    </asp:DropDownList>
+                                    <asp:ListItem Text="Cash Deposit" Value="Cash Deposit"></asp:ListItem>
+                                    <asp:ListItem Text="Transfer" Value="Transfer"></asp:ListItem>
+                                    <asp:ListItem Text="Phamagateway" Value="Phamagateway"></asp:ListItem>
+                                    <asp:ListItem Text="Phampay" Value="Phampay"></asp:ListItem>
+                                   </asp:DropDownList>
                                  </div>
                                 </div>
                                  <div class="row">

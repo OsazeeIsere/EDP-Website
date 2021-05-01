@@ -295,6 +295,11 @@ footer {
     
 <body>
     <form id="form1" runat="server">
+                 <div class="row">
+                   <h3 style="text-align:center">Please Login</h3>
+                   <hr style="color:sandybrown" />
+                 </div>
+    
               <form class="appointment-form">
                           <div class="row">
                             <div class="col-md-6 col-sm-6">

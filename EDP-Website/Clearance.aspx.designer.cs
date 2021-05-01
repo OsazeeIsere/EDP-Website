@@ -10,87 +10,78 @@
 namespace EDP_Website {
     
     
-    public partial class Site1mater2 {
+    public partial class Clearance {
         
         /// <summary>
-        /// switcher control.
+        /// lbmsg control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlLink switcher;
+        protected global::System.Web.UI.WebControls.Label lbmsg;
         
         /// <summary>
-        /// head control.
+        /// txtaccountname control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder head;
+        protected global::System.Web.UI.WebControls.TextBox txtaccountname;
         
         /// <summary>
-        /// form1 control.
+        /// txtbank control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
+        protected global::System.Web.UI.WebControls.TextBox txtbank;
         
         /// <summary>
-        /// lbmsgsuccess control.
+        /// txtteller control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbmsgsuccess;
+        protected global::System.Web.UI.WebControls.TextBox txtteller;
         
         /// <summary>
-        /// btnstartreg control.
+        /// txtpaymentmethod control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton btnstartreg;
+        protected global::System.Web.UI.WebControls.TextBox txtpaymentmethod;
         
         /// <summary>
-        /// ContentPlaceHolder1 control.
+        /// txtamout control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder ContentPlaceHolder1;
+        protected global::System.Web.UI.WebControls.TextBox txtamout;
         
         /// <summary>
-        /// lbmembercount control.
+        /// txtdate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbmembercount;
+        protected global::System.Web.UI.WebControls.TextBox txtdate;
         
         /// <summary>
-        /// lbverifiedpaymentcount control.
+        /// giveclearance control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbverifiedpaymentcount;
-        
-        /// <summary>
-        /// lbnotyetverifiedpayment control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbnotyetverifiedpayment;
+        protected global::System.Web.UI.WebControls.LinkButton giveclearance;
     }
 }

@@ -10,7 +10,7 @@
 namespace EDP_Website {
     
     
-    public partial class Site1mater2 {
+    public partial class Verification {
         
         /// <summary>
         /// switcher control.
@@ -20,15 +20,6 @@ namespace EDP_Website {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlLink switcher;
-        
-        /// <summary>
-        /// head control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder head;
         
         /// <summary>
         /// form1 control.
@@ -58,13 +49,13 @@ namespace EDP_Website {
         protected global::System.Web.UI.WebControls.LinkButton btnstartreg;
         
         /// <summary>
-        /// ContentPlaceHolder1 control.
+        /// gvpayment control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder ContentPlaceHolder1;
+        protected global::System.Web.UI.WebControls.GridView gvpayment;
         
         /// <summary>
         /// lbmembercount control.

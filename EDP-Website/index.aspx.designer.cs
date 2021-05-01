@@ -13,6 +13,15 @@ namespace EDP_Website {
     public partial class index {
         
         /// <summary>
+        /// lbmsg control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbmsg;
+        
+        /// <summary>
         /// lblmsg control.
         /// </summary>
         /// <remarks>
@@ -47,6 +56,15 @@ namespace EDP_Website {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtfirstname;
+        
+        /// <summary>
+        /// txtothernames control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtothernames;
         
         /// <summary>
         /// txtlastname control.
@@ -103,13 +121,13 @@ namespace EDP_Website {
         protected global::System.Web.UI.WebControls.DropDownList ddlyearofreg;
         
         /// <summary>
-        /// txtareaofpractice control.
+        /// ddlareaofpractice control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtareaofpractice;
+        protected global::System.Web.UI.WebControls.DropDownList ddlareaofpractice;
         
         /// <summary>
         /// txtphone control.
@@ -157,13 +175,13 @@ namespace EDP_Website {
         protected global::System.Web.UI.WebControls.RadioButton rdbfemale;
         
         /// <summary>
-        /// lbmsg control.
+        /// ddlstatus control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbmsg;
+        protected global::System.Web.UI.WebControls.DropDownList ddlstatus;
         
         /// <summary>
         /// LinkButton1 control.
@@ -173,6 +191,15 @@ namespace EDP_Website {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton LinkButton1;
+        
+        /// <summary>
+        /// btnsendmail control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton btnsendmail;
         
         /// <summary>
         /// txtusername control.

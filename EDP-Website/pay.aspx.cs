@@ -30,10 +30,19 @@ namespace EDP_Website
                 user = txtusername.Text;
                 for (int i = 0; i < dtmember.Rows.Count; i++)
                 {
-                    if ((dtmember.Rows[i]["username"].ToString() == txtusername.Text))
+                    if ((dtmember.Rows[i]["username"].ToString().ToUpper() == (txtusername.Text).ToUpper()))
                     {
                         //&& (dtmember.Rows[i]["password"].ToString()==txtpassword.Text))
                         {
+                            Session["username"] = txtusername.Text;
+                            Session["password"] = txtpassword.Text;
+                            Session["memberid"] = dtmember.Rows[i]["memberid"].ToString();
+                            Session["fullname"] = dtmember.Rows[i]["firstname"].ToString() + " " + dtmember.Rows[i]["othernames"].ToString() + " " + dtmember.Rows[i]["lastname"].ToString();
+                            Session["email"] = dtmember.Rows[i]["email"].ToString();
+                            Session["status"] = dtmember.Rows[i]["status"].ToString();
+
+                            //Session["institution"] = txtinstitution.Text;
+
                             Response.Redirect("Payment.aspx");
                         }
                     }

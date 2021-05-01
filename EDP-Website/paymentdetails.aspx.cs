@@ -12,7 +12,7 @@ namespace EDP_Website
         settings x = new settings();
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            lbmsg.Text =  Session["fullname"].ToString();
         }
 
         protected void uploadpmtdetails_Click(object sender, EventArgs e)
@@ -42,15 +42,20 @@ namespace EDP_Website
                 //}
                 else
                 {
-                    string sexvalue = "";
-                    x.adddata("Insert Into payment(accountname,bank,paymentmethod,tellernumber,date,amount,firstname,lastname,email) Values('" + txtaccountname.Text + "','" + ddlbank.Text + "','" + ddlmethod.Text + "','" + txtteller.Text + "','" + txtdate.Text + "','" + txtamout.Text + "','" + "Jason" + "','" + "Osazee" + "','" + "oz1.concepts@gmail.com" + "')");
-                     }
+                    x.adddata("Insert Into payment(accountname,bank,paymentmethod,tellernumber,date,amount,fullname,email,status) Values('" + txtaccountname.Text + "','" + ddlbank.Text + "','" + ddlmethod.Text + "','" + txtteller.Text + "','" + txtdate.Text + "','" + txtamout.Text + "','" + Session["fullname"].ToString() + "','" + Session["email"].ToString() + "','" + "Not Yet Verified" + "')");
+                    lbmsg.Text = Session["fullname"].ToString() + "!"+"  " + "Your Payment Details are Sucessfully Uploaded";
+                    txtaccountname.Text = "";
+                    txtamout.Text = "";
+                    txtdate.Text = "";
+                    txtteller.Text = "";
+                    ddlbank.Text = "";
+                    ddlmethod.Text = "";
+                }
             }
             catch (Exception ex)
             {
                 lbmsg.Text = ex.ToString();
             }
-            lbmsg.Text ="Payment Details Sucessfully Uploaded";
 
         }
     }

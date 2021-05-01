@@ -419,33 +419,33 @@
               <div class="col-lg-3 col-md-3 col-sm-6">
                 <div class="counter-box">
                   <div class="counter-no counter">
-                    200
+                    <asp:Label ID="lbmembercount" runat="server" Text=""></asp:Label>
                   </div>
-                  <div class="counter-label">Doctors</div>
+                  <div class="counter-label">Members</div>
                 </div>
               </div>
               <div class="col-lg-3 col-md-3 col-sm-6">
                  <div class="counter-box">
                   <div class="counter-no counter">
-                    300
+                      <asp:Label ID="lbverifiedpaymentcount" runat="server" Text="Label"></asp:Label>
                   </div>
-                  <div class="counter-label">Clinic Rooms</div>
+                  <div class="counter-label">Verified Payment</div>
                 </div>
               </div>
               <div class="col-lg-3 col-md-3 col-sm-6">
                  <div class="counter-box">
                   <div class="counter-no counter">
-                    350
+                      <asp:Label ID="lbnotyetverifiedpayment" runat="server" Text="Label"></asp:Label>
                   </div>
-                  <div class="counter-label">Awards</div>
+                  <div class="counter-label">Payment Not Yet Verified</div>
                 </div>
               </div>
               <div class="col-lg-3 col-md-3 col-sm-6">
                  <div class="counter-box">
                   <div class="counter-no counter">
-                    450
+                   
                   </div>
-                  <div class="counter-label">Happy Patients</div>
+                  <div class="counter-label"></div>
                 </div>
               </div>
             </div>
@@ -900,7 +900,7 @@
           <div class="row">
           <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
             <div class="footer-copyright">
-              <p>&copy; Copyright 2015 <a href="index.html">WpF Medinova</a></p>
+              <p>&copy; Copyright 2021 <a href="index.html">Nozemen InfoTech</a></p>
             </div>
           </div>
           <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
@@ -919,7 +919,7 @@
         <div class="container">
           <div class="row">
             <div class="col-md-12">
-              <p>Design & Developed By <a rel="nofollow" href="http://www.wpfreeware.com/">WpF Freeware</a></p>
+              <p>Designed & Developed By Nozemen InfoTech <!--<a rel="nofollow" href="http://www.wpfreeware.com/">WpF Freeware</a>--> </p>
             </div>
           </div>
         </div>
