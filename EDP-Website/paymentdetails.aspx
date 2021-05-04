@@ -2,13 +2,20 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <div class="line"></div>
+    <div class="container">
+        <div class="col-lg-12" >
+    <h3 style="color:orange;text-align:center"><span><asp:Label ID="lbmsg" runat="server" Text=""></asp:Label> </span></h3>
 
-    <h3 style="color:orange"><asp:Label ID="lbmsg" runat="server" Text=""></asp:Label></h3>
-<div class="col-lg-4 col-md-4" style="align-self:auto">
+        </div>
+</div>
+<div class="container">
+<div class="col-lg-12 col-md-12" style="align-self:auto">
                                   <div class="row">
                                       <h3 style="text-align:center">Please Enter Your Payment Details</h3>
                                       <hr style="color:sandybrown" />
                                       </div>
+   
                         <form class="appointment-form">
                           <div class="row">
                             <div class="col-md-6 col-sm-6">
@@ -68,5 +75,5 @@
                             <asp:LinkButton class="wpcf7-submit button--itzel" ID="uploadpmtdetails" OnClick="uploadpmtdetails_Click" runat="server"><i class="button__icon fa fa-share"></i><span>Submit</span></asp:LinkButton>
                         </form>
                       </div>
-
+    </div>
 </asp:Content>

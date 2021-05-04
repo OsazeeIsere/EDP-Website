@@ -12,7 +12,9 @@ namespace EDP_Website
         protected void Page_Load(object sender, EventArgs e)
         {
             lbmsg.Text = "You Are Welcome! " + "  " + Session["fullname"].ToString();
-
+            byte bytes =Convert.ToByte (Session["image"].ToString());
+            //string base64String = Convert.ToBase64String(bytes);
+            Image2. = "~/ImageStorage/" + bytes;
         }
 
         protected void LinkButton3_Click(object sender, EventArgs e)

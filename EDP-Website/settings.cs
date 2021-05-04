@@ -42,5 +42,19 @@ namespace EDP_Website
             cm.ExecuteNonQuery();
             cn.Close();
         }
+        public void updatetable(string strupdate)
+        {
+            MySql.Data.MySqlClient.MySqlConnection cn = new MySql.Data.MySqlClient.MySqlConnection();
+            MySql.Data.MySqlClient.MySqlDataAdapter ad = new MySql.Data.MySqlClient.MySqlDataAdapter();
+            MySql.Data.MySqlClient.MySqlCommand cm = new MySql.Data.MySqlClient.MySqlCommand();
+            string strconnection = "";
+            strconnection = "server= localhost;port=3306;database=psndb;uid=root;pwd=prayer";
+            cn.ConnectionString = strconnection;
+            cn.Open();
+            cm.CommandText = strupdate;
+             cm.Connection = cn;
+            cm.ExecuteNonQuery();
+            cn.Close();
+        }
     }
 }

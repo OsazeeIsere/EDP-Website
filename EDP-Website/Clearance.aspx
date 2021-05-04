@@ -2,11 +2,17 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    
-    <h3 style="color:orange"><asp:Label ID="lbmsg" runat="server" Text=""></asp:Label></h3>
-<div class="col-lg-4 col-md-4" style="align-self:auto">
+   <div class="container">
+    <div class="row">
+        <div class="col-lg-12 col-md-12">
+                <h3 style="color:orange"><asp:Label ID="lbmsg" runat="server" Text=""></asp:Label></h3>
+        </div>
+    </div>
+       </div>
+<div class="container">
+<div class="col-lg-12 col-md-12" style="align-self:auto">
                                   <div class="row">
-                                      <h3 style="text-align:center">Please Is The Following Payment Already Verified?</h3>
+                                     <div class="section-heading"> <h3 style="text-align:center">Please Is The Following Payment Already Verified?</h3></div>
                                       <hr style="color:sandybrown" />
                                       </div>
                         <form class="appointment-form">
@@ -64,5 +70,5 @@
                                </div>
                                  </form>
                       </div>
-
+    </div>
 </asp:Content>

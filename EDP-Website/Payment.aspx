@@ -2,6 +2,13 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-     <h3 style="color:orange"><asp:Label ID="lbmsg" runat="server" Text=""></asp:Label></h3>
+    <div class="container">
+        <div class="col-md-12">
+                <h3 style="color:orange;text-align:center"><asp:Label ID="lbmsg" runat="server" Text=""></asp:Label></h3>
+            <asp:Image ID="Image1" runat="server" />
+            <asp:Label ID="lbimage" runat="server" Text=""></asp:Label>
+            <asp:Image ID="Image2" runat="server" />
+        </div>
+    </div> 
 
 </asp:Content>

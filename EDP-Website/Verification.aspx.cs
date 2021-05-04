@@ -49,8 +49,8 @@ namespace EDP_Website
                
                    //&& (dtmember.Rows[i]["password"].ToString()==txtpassword.Text))
                         {
-                            
-                            Session["memberid"] = dtmember.Rows[0]["memberid"].ToString();
+                           Session["paymentid"] = id;
+                           Session["memberid"] = dtmember.Rows[0]["memberid"].ToString();
                             Session["fullname"] = dtmember.Rows[0]["fullname"].ToString();
                             Session["email"] = dtmember.Rows[0]["email"].ToString();
                             Session["status"] = dtmember.Rows[0]["status"].ToString();

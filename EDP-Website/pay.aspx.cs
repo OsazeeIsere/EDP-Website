@@ -40,6 +40,7 @@ namespace EDP_Website
                             Session["fullname"] = dtmember.Rows[i]["firstname"].ToString() + " " + dtmember.Rows[i]["othernames"].ToString() + " " + dtmember.Rows[i]["lastname"].ToString();
                             Session["loginemail"] = dtmember.Rows[i]["email"].ToString();
                             Session["status"] = dtmember.Rows[i]["status"].ToString();
+                            Session["image"] = dtmember.Rows[i]["image"].ToString();
 
                             //Session["institution"] = txtinstitution.Text;
 

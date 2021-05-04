@@ -71,7 +71,21 @@ namespace EDP_Website
                     {
                         sexvalue = "Female";
                     }
-                    x.adddata("Insert Into member(firstname,lastname,username,password,pcnnumber,yearofregistration,area,phone,email,lga,sex,othernames,status) Values('" + txtfirstname.Text + "','" + txtlastname.Text + "','" + txtregusername.Text + "','" + txtregpassword.Text + "','" + txtpcn.Text + "','" + ddlyearofreg.Text + "','" + ddlareaofpractice.Text + "','" + txtphone.Text + "','" + txtemail.Text + "','" + ddlstates.Text + "','" + sexvalue + "','" + txtothernames.Text + "','" + ddlstatus.Text + "')");
+                    if (FileUpload1.HasFile)
+                    {
+                        string strname = FileUpload1.FileName.ToString();
+                        FileUpload1.PostedFile.SaveAs(Server.MapPath("~/ImageStorage/") + strname);
+                        x.adddata("Insert Into member(firstname,lastname,username,password,pcnnumber,yearofregistration,area,phone,email,lga,sex,othernames,status,image) Values('" + txtfirstname.Text + "','" + txtlastname.Text + "','" + txtregusername.Text + "','" + txtregpassword.Text + "','" + txtpcn.Text + "','" + ddlyearofreg.Text + "','" + ddlareaofpractice.Text + "','" + txtphone.Text + "','" + txtemail.Text + "','" + ddlstates.Text + "','" + sexvalue + "','" + txtothernames.Text + "','" + ddlstatus.Text + "','" + strname + "')");
+
+                        //Label1.Visible = true;
+                        //Label1.Text = "Image Uploaded successfully";
+                        //txtname.Text = "";
+                    }
+                    else { 
+                    //{
+                    //    Label1.Visible = true;
+                    //    Label1.Text = "Plz upload the image!!!!";
+                    }
                     //    x.audit(Convert.ToString(Session["username"]), "courses", "all", "Course Creation", Convert.ToInt32(Session["adminid"]));
                     //    txtcoursecode.Text = "";
                     //    txtcoursetitle.Text = ""; where product_name='"+x+"';";
@@ -177,6 +191,39 @@ namespace EDP_Website
             }
 
 
+        }
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            StartUpLoad();
+        }
+        private void StartUpLoad()
+        {
+            //get the file name of the posted image  
+            string imgName = FileUpload1.FileName;
+            //sets the image path  
+            string imgPath = "ImageStorage/" + imgName;
+            //get the size in bytes that  
+
+            int imgSize = FileUpload1.PostedFile.ContentLength;
+
+            //validates the posted file before saving  
+            if (FileUpload1.PostedFile != null && FileUpload1.PostedFile.FileName != "")
+            {
+                // 10240 KB means 10MB, You can change the value based on your requirement  
+                if (FileUpload1.PostedFile.ContentLength > 10240)
+                {
+                    Page.ClientScript.RegisterClientScriptBlock(typeof(Page), "Alert", "alert('File is too big.')", true);
+                }
+                else
+                {
+                    //then save it to the Folder  
+                    FileUpload1.SaveAs(Server.MapPath(imgPath));
+                    Image1.ImageUrl = "~/" + imgPath;
+                    Page.ClientScript.RegisterClientScriptBlock(typeof(Page), "Alert", "alert('Image saved!')", true);
+                }
+
+            }
         }
     }
 }

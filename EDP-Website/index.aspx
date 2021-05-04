@@ -181,19 +181,34 @@
                               <label class="control-label">Sex <span class="required">*</span>
                               </label>
                                 <asp:RadioButton class="wp-form-control wpcf7-text" ID="rdbmale" GroupName="sex" Text="Male" Checked="true" runat="server" />
-                                <asp:RadioButton class="wp-form-control wpcf7-text" ID="rdbfemale" GroupName="sex" Text ="Female" runat="server" />
                             </div>
                                <div class="col-md-6 col-sm-6">
-                              <label class="control-label"> Status <span class="required">*</span>
+                              <label class="control-label">Sex <span class="required">*</span>
+                              </label>
+                                   <asp:RadioButton class="wp-form-control wpcf7-text" ID="rdbfemale" GroupName="sex" Text ="Female" runat="server" />
+                             </div>
+                           
+                          </div>  
+                            <div class="row">
+                                <div class="col-md-6 col-sm-6">
+                                    <label class="control-label"> Status <span class="required">*</span>
                               </label>
                                     <asp:DropDownList class="wp-form-control wpcf7-select" ID="ddlstatus" runat="server">
                                     <asp:ListItem Text="Select Your Status" Value="select"></asp:ListItem>
                                     <asp:ListItem Text="Admin" Value="Admin"></asp:ListItem>
                                     <asp:ListItem Text="Member" Value="Member"></asp:ListItem>
                                     </asp:DropDownList>
-                             </div>
-                           
-                          </div>  
+                                </div>
+                                <div class="col-md-6 col-sm-6">
+                                   <label class="control-label"> Passport Photo <span class="required">*</span>
+                                    </label>
+                                    <asp:FileUpload class="wp-form-control wpcf7-select" ID="FileUpload1" runat="server" />  
+                                    <asp:Button class="wp-form-control wpcf7-select" ID="Button1" runat="server" Text="Upload" onclick="Button1_Click"/>  
+                                    <br />  
+                                    <asp:Image ID="Image1" runat="server" />                                  </div>
+                                
+
+                            </div>
                           <%--<input type="text" class="wp-form-control wpcf7-text" placeholder="Subject">
                           <textarea class="wp-form-control wpcf7-textarea" cols="30" rows="10" placeholder="What would you like to tell us"></textarea>
                           --%>
