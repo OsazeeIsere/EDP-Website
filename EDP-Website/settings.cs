@@ -2,11 +2,16 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-
+using System.Configuration;
 namespace EDP_Website
 {
     public class settings
     {
+        private string GetConnectionString()
+        {
+            string str = ConfigurationManager.ConnectionStrings["myConnString"].ConnectionString;
+            return str;
+        }
         public System.Data.DataTable getdatabase(string strcommand)
         {
             System.Data.DataTable tempgetdatabase = null;
@@ -14,9 +19,7 @@ namespace EDP_Website
             MySql.Data.MySqlClient.MySqlConnection cn = new MySql.Data.MySqlClient.MySqlConnection();
             MySql.Data.MySqlClient.MySqlDataAdapter ad = new MySql.Data.MySqlClient.MySqlDataAdapter();
             MySql.Data.MySqlClient.MySqlCommand cm = new MySql.Data.MySqlClient.MySqlCommand();
-            string strconnection = "";
-            strconnection = "Server=localhost;Port=3306;Database=psndb;Uid=root;Pwd=prayer;";
-            cn.ConnectionString = strconnection;
+            cn.ConnectionString = GetConnectionString();
             cn.Open();
             cm.CommandText = strcommand;
             ad.SelectCommand = cm;
@@ -33,9 +36,7 @@ namespace EDP_Website
             MySql.Data.MySqlClient.MySqlDataAdapter ad = new MySql.Data.MySqlClient.MySqlDataAdapter();
             MySql.Data.MySqlClient.MySqlCommand cm = new MySql.Data.MySqlClient.MySqlCommand();
 
-            string strconnection = "";
-            strconnection = "server= localhost;port=3306;database=psndb;uid=root;pwd=prayer";
-            cn.ConnectionString = strconnection;
+            cn.ConnectionString = GetConnectionString();
             cn.Open();
             cm.CommandText = strinsert;
             cm.Connection = cn;

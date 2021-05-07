@@ -22,6 +22,7 @@ namespace EDP_Website
 
         protected void LinkButton3_Click(object sender, EventArgs e)
         {
+            try { 
             System.Data.DataTable dtmember = new System.Data.DataTable();
             dtmember = x.getdatabase("Select * From member");
             if (dtmember.Rows.Count > 0)
@@ -30,7 +31,8 @@ namespace EDP_Website
                 user = txtusername.Text;
                 for (int i = 0; i < dtmember.Rows.Count; i++)
                 {
-                    if ((dtmember.Rows[i]["username"].ToString().ToUpper() == (txtusername.Text).ToUpper()))
+                    if ((dtmember.Rows[i]["username"].ToString().ToUpper() == (txtusername.Text).ToUpper()) &&
+                        (dtmember.Rows[i]["password"].ToString() == (txtpassword.Text)))
                     {
                         //&& (dtmember.Rows[i]["password"].ToString()==txtpassword.Text))
                         {
@@ -47,8 +49,17 @@ namespace EDP_Website
                             Response.Redirect("Payment.aspx");
                         }
                     }
+                        else
+                        {
+                            lbmsg.Text = "Information Mismatch! Please, Check Your Entery Carefully";
+                        }
                 }
             }
+        }
+        catch(Exception ex)
+           {
+                lbmsg.Text = ex.ToString();
+           }
         }
 
     }

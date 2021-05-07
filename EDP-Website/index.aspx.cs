@@ -6,6 +6,9 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Net;
 using System.Net.Mail;
+using System.IO;
+using System.Data;
+using System.Configuration;
 namespace EDP_Website
 {
     public partial class index : System.Web.UI.Page
@@ -18,7 +21,7 @@ namespace EDP_Website
                 //Reference the DropDownList.
                 //Determine the Current Year.
                 var currentYear = DateTime.Now.Year;
-                ddlyearofreg.Items.Add("select year of regisration");
+                //ddlyearofreg.Items.Add("select year of regisration");
                 ddlyearofreg.Items.Add("Select Your Year Of Registration");
                 //Loop and add the Year values to DropDownList.
                 for (var i = 1950; i <= currentYear; i++)
@@ -71,21 +74,31 @@ namespace EDP_Website
                     {
                         sexvalue = "Female";
                     }
-                    if (FileUpload1.HasFile)
-                    {
-                        string strname = FileUpload1.FileName.ToString();
-                        FileUpload1.PostedFile.SaveAs(Server.MapPath("~/ImageStorage/") + strname);
-                        x.adddata("Insert Into member(firstname,lastname,username,password,pcnnumber,yearofregistration,area,phone,email,lga,sex,othernames,status,image) Values('" + txtfirstname.Text + "','" + txtlastname.Text + "','" + txtregusername.Text + "','" + txtregpassword.Text + "','" + txtpcn.Text + "','" + ddlyearofreg.Text + "','" + ddlareaofpractice.Text + "','" + txtphone.Text + "','" + txtemail.Text + "','" + ddlstates.Text + "','" + sexvalue + "','" + txtothernames.Text + "','" + ddlstatus.Text + "','" + strname + "')");
 
-                        //Label1.Visible = true;
-                        //Label1.Text = "Image Uploaded successfully";
-                        //txtname.Text = "";
-                    }
-                    else { 
+                    string filename = Path.GetFileName(FileUpload1.PostedFile.FileName);
+                    string contentType = FileUpload1.PostedFile.ContentType;
+                    using (Stream fs = FileUpload1.PostedFile.InputStream)
+                    {
+                        using (BinaryReader br = new BinaryReader(fs))
+                        {
+                            byte[] bytes = br.ReadBytes((Int32)fs.Length);
+
+
+
+                            //string strname = FileUpload1.FileName.ToString();
+                            //  FileUpload1.PostedFile.SaveAs(Server.MapPath("~/ImageStorage/") + strname);
+                            x.adddata("Insert Into member(firstname,lastname,username,password,pcnnumber,yearofregistration,area,phone,email,lga,sex,othernames,status,image) Values('" + txtfirstname.Text + "','" + txtlastname.Text + "','" + txtregusername.Text + "','" + txtregpassword.Text + "','" + txtpcn.Text + "','" + ddlyearofreg.Text + "','" + ddlareaofpractice.Text + "','" + txtphone.Text + "','" + txtemail.Text + "','" + ddlstates.Text + "','" + sexvalue + "','" + txtothernames.Text + "','" + ddlstatus.Text + "','" + bytes + "')");
+
+                            //Label1.Visible = true;
+                            //Label1.Text = "Image Uploaded successfully";
+                            //txtname.Text = "";
+                        }
+                    } 
+                     
                     //{
                     //    Label1.Visible = true;
                     //    Label1.Text = "Plz upload the image!!!!";
-                    }
+                    
                     //    x.audit(Convert.ToString(Session["username"]), "courses", "all", "Course Creation", Convert.ToInt32(Session["adminid"]));
                     //    txtcoursecode.Text = "";
                     //    txtcoursetitle.Text = ""; where product_name='"+x+"';";
