@@ -111,7 +111,8 @@
                               </label>
                                     <asp:RequiredFieldValidator ID="vdconfirmpassword" runat="server" ErrorMessage="Confirm Password Is Cumpulsory" ControlToValidate="txtreenterpassword" Text="*"></asp:RequiredFieldValidator>
                                     <asp:TextBox class="wp-form-control wpcf7-text" placeholder="Re-Enter Your Password" ID="txtreenterpassword" TextMode="Password" runat="server"></asp:TextBox>
-                            </div>
+                                    <asp:CompareValidator ID="CompareValidator1" runat="server" ErrorMessage="Both password must match" ControlToCompare="txtregpassword" ControlToValidate="txtreenterpassword">*</asp:CompareValidator>
+                                </div>
                          
                           </div>
 

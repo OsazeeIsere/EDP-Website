@@ -16,6 +16,7 @@ namespace EDP_Website
         {
 if (!IsPostBack)
             {
+                
                 BindGrid();
             }
         }
@@ -35,15 +36,30 @@ if (!IsPostBack)
             System.Data.DataTable dtmember = new System.Data.DataTable();
             dtmember = x.getdatabase("Select * From member where memberid='" + Session["memberid"] + "'");
             lbmsg.Text = "You Are Welcome! " + "  " + Session["fullname"].ToString();
+            gvImages.DataSource = dtmember;
+            gvImages.DataBind();
+            dlvimage.DataSource = dtmember;
+            
+            dlvimage.DataBind();
         }
         protected void OnRowDataBound(object sender, GridViewRowEventArgs e)
         {
+            System.Data.DataTable dtmember1 = new System.Data.DataTable();
+            dtmember1 = x.getdatabase("Select * From member where memberid='" + Session["memberid"] + "'");
+
             if (e.Row.RowType == DataControlRowType.DataRow)
             {
-                byte[] bytes = (byte[])(e.Row.DataItem as DataRowView)["image"];
-                string base64String = Convert.ToBase64String(bytes, 0, bytes.Length);
-                (e.Row.FindControl("Image1") as Image).ImageUrl = "data:image/png;base64," + base64String;
+                (e.Row.FindControl("Image1") as Image).ImageUrl = "~/ImageStorage/" + "_" + Session["memberid"] + "_" + dtmember1.Rows[0]["image"];
             }
+        }
+
+        protected void dlvimage_ItemDataBound(object sender, DataListItemEventArgs e)
+        {
+            System.Data.DataTable dtmember1 = new System.Data.DataTable();
+            dtmember1 = x.getdatabase("Select * From member where memberid='" + Session["memberid"] + "'");
+
+            (e.Item.FindControl("Image2") as Image).ImageUrl = "~/ImageStorage/" + "_" + Session["memberid"] + "_" + dtmember1.Rows[0]["image"];
+
         }
     }
 }

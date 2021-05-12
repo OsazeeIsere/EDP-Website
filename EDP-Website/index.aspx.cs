@@ -9,15 +9,30 @@ using System.Net.Mail;
 using System.IO;
 using System.Data;
 using System.Configuration;
+using System.Diagnostics;
+using System.Globalization;
+using System.Reflection;
+using System.Runtime.CompilerServices;
+using System.Security;
+using System.Text;
+using System.Threading.Tasks;
+using Microsoft.VisualBasic;
+
 namespace EDP_Website
 {
     public partial class index : System.Web.UI.Page
     {
-        settings x = new settings();
+        private string imageFile;
+        private HttpPostedFile imgFile;
+        private string uploadDirectory;
+
+            settings x = new settings();
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
+               // uploadDirectory = Path.Combine(System.Web.UI.Page.Request.PhysicalApplicationPath, @"assets\img");
+
                 //Reference the DropDownList.
                 //Determine the Current Year.
                 var currentYear = DateTime.Now.Year;
@@ -42,8 +57,6 @@ namespace EDP_Website
 
             try
             {
-                System.Data.DataTable dtgetdepartment = new System.Data.DataTable();
-                System.Data.DataTable dtgetstudent = new System.Data.DataTable();
 
 
                 // dtgetdepartment = getdatabase("Select * From department");
@@ -74,46 +87,108 @@ namespace EDP_Website
                     {
                         sexvalue = "Female";
                     }
+                    //  // check that a file is actually being submitted
+                    //imgFile = null;
+                    //if (flpuploadmanuscript.PostedFile.FileName == "")
+                    //{
+                    //    lblerror.Text += "; No file specified";
+                    //    return;
+                    //}
+                    //else
+                    //{
+                    //    // check the extension
+                    //    string extension = System.IO.Path.GetExtension(flpuploadmanuscript.PostedFile.FileName);
+
+                    //    switch (extension.ToLower())
+                    //    {
+                    //        case ".doc":
+                    //        case ".docx":
+                    //        case ".pdf":
+                    //            {
+                    //                break;
+                    //            }
+
+                    //        default:
+                    //            {
+                    //                lblerror.Text = "This file type is not allowed, use only doc or docx files";
+                    //                return;
+                    //            }
+                    //    }
+
+                    //    lblerror.Text = flpuploadmanuscript.PostedFile.FileName;
+
+                    //    string serverFileName = System.IO.Path.GetFileName(flpuploadmanuscript.PostedFile.FileName);
+
+
+                    //    string fullUploadPath = System.IO.Path.Combine(uploadDirectory, "manuscript_" + intarticleid.ToString() + "_" + serverFileName);
+
+                    //    try
+                    //    {
+                    //        flpuploadmanuscript.PostedFile.SaveAs(fullUploadPath);
+                    //        lblerror.Text += "; File " + serverFileName;
+                    //        // lblphoto.Text = serverFileName
+                    //        lblerror.Text += " uploaded successfully to ";
+                    //        lblerror.Text += fullUploadPath;
+                    //    }
+                    //    catch (Exception ex)
+                    //    {
+                    //        lblerror.Text += ex.ToString();
+                    //    }
+
+
+
+                    //    int intperson = System.Convert.ToInt32(System.Web.UI.Page.Session["personid"]);
+
+                    //    string strinsert = "Update files Set file1='" + "manuscript_" + intarticleid.ToString() + "_" + serverFileName + "' Where articleid=" + intarticleid + ";";
+                    //    objsettings.AddData(strinsert);
+
+
+
+                    //    lblerror.Text = lblerror.Text + "; Your document has been uploaded";
 
                     string filename = Path.GetFileName(FileUpload1.PostedFile.FileName);
-                    string contentType = FileUpload1.PostedFile.ContentType;
-                    using (Stream fs = FileUpload1.PostedFile.InputStream)
-                    {
-                        using (BinaryReader br = new BinaryReader(fs))
-                        {
-                            byte[] bytes = br.ReadBytes((Int32)fs.Length);
+                    //string contentType = FileUpload1.PostedFile.ContentType;
+                    //  string fullUploadPath = System.IO.Path.Combine(uploadDirectory, "ImageStorage" + "_" + filename);
 
 
 
-                            //string strname = FileUpload1.FileName.ToString();
-                            //  FileUpload1.PostedFile.SaveAs(Server.MapPath("~/ImageStorage/") + strname);
-                            x.adddata("Insert Into member(firstname,lastname,username,password,pcnnumber,yearofregistration,area,phone,email,lga,sex,othernames,status,image) Values('" + txtfirstname.Text + "','" + txtlastname.Text + "','" + txtregusername.Text + "','" + txtregpassword.Text + "','" + txtpcn.Text + "','" + ddlyearofreg.Text + "','" + ddlareaofpractice.Text + "','" + txtphone.Text + "','" + txtemail.Text + "','" + ddlstates.Text + "','" + sexvalue + "','" + txtothernames.Text + "','" + ddlstatus.Text + "','" + bytes + "')");
+                    x.adddata("Insert Into member(firstname,lastname,username,password,pcnnumber,yearofregistration,area,phone,email,lga,sex,othernames,status,image) Values('" + txtfirstname.Text + "','" + txtlastname.Text + "','" + txtregusername.Text + "','" + txtregpassword.Text + "','" + txtpcn.Text + "','" + ddlyearofreg.Text + "','" + ddlareaofpractice.Text + "','" + txtphone.Text + "','" + txtemail.Text + "','" + ddlstates.Text + "','" + sexvalue + "','" + txtothernames.Text + "','" + ddlstatus.Text + "','" + filename + "')");
+                    int count = 0;
+                    string memberid = "";
 
-                            //Label1.Visible = true;
-                            //Label1.Text = "Image Uploaded successfully";
-                            //txtname.Text = "";
-                        }
-                    } 
-                     
-                    //{
-                    //    Label1.Visible = true;
-                    //    Label1.Text = "Plz upload the image!!!!";
-                    
-                    //    x.audit(Convert.ToString(Session["username"]), "courses", "all", "Course Creation", Convert.ToInt32(Session["adminid"]));
-                    //    txtcoursecode.Text = "";
-                    //    txtcoursetitle.Text = ""; where product_name='"+x+"';";
-                    //    txtcoursecode.Text = "";
                     System.Data.DataTable dtmember = new System.Data.DataTable();
-                    dtmember = x.getdatabase ("Select * From member where email='" + txtemail.Text +"'");
+                    dtmember = x.getdatabase("Select * From member where email='" + txtemail.Text + "'");
+                    count = dtmember.Rows.Count;
                     if (dtmember.Rows.Count > 0)
                     {
-                        lbmsg.Text = "   " + "Successfully Registered. You Are Welcome!";
-                        Session["username"] = txtusername.Text;
-                        Session["password"] = txtpassword.Text;
-                        Session["memberid"] = dtmember.Rows[0]["memberid"].ToString();
-                        Session["fullname"] = dtmember.Rows[0]["firstname"].ToString() + " " + dtmember.Rows[0]["othernames"].ToString() + " " + dtmember.Rows[0]["lastname"].ToString();
-                        Session["loginemail"] = dtmember.Rows[0]["email"].ToString();
-                        Session["status"] = dtmember.Rows[0]["status"].ToString();
+                        memberid = dtmember.Rows[0]["memberid"].ToString();
+                        FileUpload1.PostedFile.SaveAs(Server.MapPath("~/ImageStorage/") + "_" + memberid + "_" + filename);
+
+                        //Label1.Visible = true;
+                        //Label1.Text = "Image Uploaded successfully";
+                        //txtname.Text = "";
+
+
+
+                        //{
+                        //    Label1.Visible = true;
+                        //    Label1.Text = "Plz upload the image!!!!";
+
+                        //    x.audit(Convert.ToString(Session["username"]), "courses", "all", "Course Creation", Convert.ToInt32(Session["adminid"]));
+                        //    txtcoursecode.Text = "";
+                        //    txtcoursetitle.Text = ""; where product_name='"+x+"';";
+                        //    txtcoursecode.Text = "";
+                        dtmember = x.getdatabase("Select * From member where email='" + txtemail.Text + "'");
+                        if (dtmember.Rows.Count > 0)
+                        {
+                            lbmsg.Text = "   " + "Successfully Registered. You Are Welcome!";
+                            Session["username"] = txtusername.Text;
+                            Session["password"] = txtpassword.Text;
+                            Session["memberid"] = dtmember.Rows[0]["memberid"].ToString();
+                            Session["fullname"] = dtmember.Rows[0]["firstname"].ToString() + " " + dtmember.Rows[0]["othernames"].ToString() + " " + dtmember.Rows[0]["lastname"].ToString();
+                            Session["loginemail"] = dtmember.Rows[0]["email"].ToString();
+                            Session["status"] = dtmember.Rows[0]["status"].ToString();
+                        }
                     }
                 }
             }
@@ -135,7 +210,7 @@ namespace EDP_Website
             ddlareaofpractice.Text = "";
             ddlstates.Text = "";
             ddlstatus.Text = "";
-            ddlyearofreg.Text = "select year of regisration";
+            ddlyearofreg.Text = "Select Your Year Of Registration";
             rdbfemale.Text = "";
             rdbmale.Text = "";
 

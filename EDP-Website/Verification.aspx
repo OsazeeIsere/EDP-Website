@@ -260,12 +260,12 @@
                   </div>
                       </div>
     </section>
-            
-
-            <div class="row">
-                                      <h3 style="text-align:center">List Of Payments Awaiting Verification</h3>
-                                      <hr style="color:sandybrown" />
-                                      </div>
+         <div class="row">
+        <hr style="color:sandybrown" />
+        </div>
+    <div class="row">
+          <h3 style="text-align:center">List Of Payments Awaiting Verification</h3>
+         <hr style="color:sandybrown" />
             <div class="container">
     <div class="row">
       <div class="col-md-12">

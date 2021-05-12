@@ -476,11 +476,24 @@
                     <div class="single-doctor">
                       <a class="tdoctor" href="#" data-path-hover="m 180,34.57627 -180,0 L 0,0 180,0 z">
                         <figure>
-                          <img src="images/doctor-1.jpg" />
+                          <asp:DataList ID="dlvimage" runat="server" BackColor="LightGoldenrodYellow" BorderColor="Tan" BorderWidth="1px" CellPadding="2" DataKeyField="memberid" DataMember="firstname" ForeColor="Black" OnItemDataBound="dlvimage_ItemDataBound" RepeatColumns="3">
+            <AlternatingItemStyle BackColor="PaleGoldenrod" />
+            <FooterStyle BackColor="Tan" />
+            <HeaderStyle BackColor="Tan" Font-Bold="True" />
+            <ItemTemplate>
+                <!--
+                <asp:Label ID="lbid" runat="server" Text='<%# Eval("memberid") %>' /> <br />
+                <asp:Label ID="lbfirstname" runat="server" Text='<%# Eval("firstname") %>' /><br />
+                -->
+                <asp:Image ID="Image2" runat="server"/>
+                </ItemTemplate>
+            <SelectedItemStyle BackColor="DarkSlateBlue" ForeColor="GhostWhite" />
+        </asp:DataList>
+                            <!--<img src="images/doctor-1.jpg" /> -->
                           <svg viewBox="0 0 180 320" preserveAspectRatio="none"><path d="M 180,160 0,218 0,0 180,0 z"/></svg>
                           <figcaption>
-                            <h2>Dr. Yvonne Cadiline</h2>
-                            <p>Pediatric Clinic</p>
+                            <h2><asp:Label ID="lbfirstname" runat="server" Text='<%# Eval("firstname") %>' /><br /></h2>
+                            <p><asp:Label ID="lbstatus" runat="server" Text='<%# Eval("status") %>' /><br /></p>
                             <button>View</button>             
                           </figcaption>
                         </figure>

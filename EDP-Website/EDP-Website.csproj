@@ -361,6 +361,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="DataTable\" />
     <Folder Include="ImageStorage\" />
   </ItemGroup>
   <PropertyGroup>

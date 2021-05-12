@@ -44,6 +44,13 @@ namespace EDP_Website
             //    Session["email"] = dtmember.Rows[0]["email"].ToString();
             //    Session["status"] = dtmember.Rows[0]["status"].ToString();
             //}
+            System.Data.DataTable dtmember1 = new System.Data.DataTable();
+            dtmember1 = x.getdatabase("Select * From member where memberid='" + Session["memberid"] + "'");
+            dlvimage.DataSource = dtmember1;
+
+            dlvimage.DataBind();
+            lbfirstname.Text = dtmember1.Rows[0]["firstname"].ToString() +" " + dtmember1.Rows[0]["othernames"].ToString() + " " + dtmember1.Rows[0]["lastname"].ToString();
+            lbstatus.Text = dtmember1.Rows[0]["status"].ToString();
         }
 
         protected void btnstartreg_Click(object sender, EventArgs e)
@@ -58,6 +65,15 @@ namespace EDP_Website
 
         protected void LinkButton3_Click(object sender, EventArgs e)
         {
+
+        }
+
+        protected void dlvimage_ItemDataBound(object sender, DataListItemEventArgs e)
+        {
+            System.Data.DataTable dtmember1 = new System.Data.DataTable();
+            dtmember1 = x.getdatabase("Select * From member where memberid='" + Session["memberid"] + "'");
+
+            (e.Item.FindControl("Image2") as Image).ImageUrl = "~/ImageStorage/" + "_" + Session["memberid"] + "_" + dtmember1.Rows[0]["image"];
 
         }
     }

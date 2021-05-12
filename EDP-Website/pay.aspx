@@ -296,7 +296,7 @@ footer {
 <body>
     <form id="form1" runat="server">
                  <div class="row">
-                 <h4><asp:Label ID="lbmsg" runat="server" Text=""></asp:Label></h4>
+                 <h3 style="color:orange"><asp:Label ID="lbmsg" runat="server" Text=""></asp:Label></h3>
                     <h3 style="text-align:center">Please Login</h3>
                    <hr style="color:sandybrown" />
                  </div>
