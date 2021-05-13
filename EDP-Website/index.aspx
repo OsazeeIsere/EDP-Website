@@ -192,12 +192,12 @@
                           
                           <div class="row">
                             <div class="col-md-6 col-sm-6">
-                              <label class="control-label">Sex
+                              <label class="control-label">Sex(Male)
                               </label>
                                 <asp:RadioButton class="wp-form-control wpcf7-text" ValidationGroup="Sex" ID="rdbmale" GroupName="sex" Text="Male" Checked="true" runat="server" />
                             </div>
                                <div class="col-md-6 col-sm-6">
-                              <label class="control-label">Sex 
+                              <label class="control-label">Sex(Female) 
                               </label>
                                    <asp:RadioButton class="wp-form-control wpcf7-text" ValidationGroup="Sex" ID="rdbfemale" GroupName="sex" Text ="Female" runat="server" />
                              </div>

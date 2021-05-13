@@ -33,14 +33,14 @@ if (!IsPostBack)
         }
         private void BindGrid()
         {
-            System.Data.DataTable dtmember = new System.Data.DataTable();
-            dtmember = x.getdatabase("Select * From member where memberid='" + Session["memberid"] + "'");
-            lbmsg.Text = "You Are Welcome! " + "  " + Session["fullname"].ToString();
-            gvImages.DataSource = dtmember;
-            gvImages.DataBind();
-            dlvimage.DataSource = dtmember;
+            //System.Data.DataTable dtmember = new System.Data.DataTable();
+            //dtmember = x.getdatabase("Select * From member where memberid='" + Session["memberid"] + "'");
+            //lbmsg.Text = "You Are Welcome! " + "  " + Session["fullname"].ToString();
+            //gvImages.DataSource = dtmember;
+            //gvImages.DataBind();
+            //dlvimage.DataSource = dtmember;
             
-            dlvimage.DataBind();
+            //dlvimage.DataBind();
         }
         protected void OnRowDataBound(object sender, GridViewRowEventArgs e)
         {

@@ -476,7 +476,7 @@
                     <div class="single-doctor">
                       <a class="tdoctor" href="#" data-path-hover="m 180,34.57627 -180,0 L 0,0 180,0 z">
                         <figure>
-                          <asp:DataList ID="dlvimage" runat="server" BackColor="LightGoldenrodYellow" BorderColor="Tan" BorderWidth="1px" CellPadding="2" DataKeyField="memberid" DataMember="firstname" ForeColor="Black" OnItemDataBound="dlvimage_ItemDataBound" RepeatColumns="3">
+                          <asp:DataList ID="dlvimage" runat="server" BackColor="LightGoldenrodYellow" BorderColor="Tan" BorderWidth="1px" CellPadding="2" DataKeyField="memberid" DataMember="firstname" ForeColor="Black" OnItemDataBound="dlvimage_ItemDataBound">
             <AlternatingItemStyle BackColor="PaleGoldenrod" />
             <FooterStyle BackColor="Tan" />
             <HeaderStyle BackColor="Tan" Font-Bold="True" />
@@ -485,15 +485,15 @@
                 <asp:Label ID="lbid" runat="server" Text='<%# Eval("memberid") %>' /> <br />
                 <asp:Label ID="lbfirstname" runat="server" Text='<%# Eval("firstname") %>' /><br />
                 -->
-                <asp:Image ID="Image2" runat="server"/>
+                <asp:Image ID="Image2" runat="server" Height="430px" Width="209px"/>
                 </ItemTemplate>
             <SelectedItemStyle BackColor="DarkSlateBlue" ForeColor="GhostWhite" />
         </asp:DataList>
                             <!--<img src="images/doctor-1.jpg" /> -->
                           <svg viewBox="0 0 180 320" preserveAspectRatio="none"><path d="M 180,160 0,218 0,0 180,0 z"/></svg>
                           <figcaption>
-                            <h2><asp:Label ID="lbfirstname" runat="server" Text='<%# Eval("firstname") %>' /><br /></h2>
-                            <p><asp:Label ID="lbstatus" runat="server" Text='<%# Eval("status") %>' /><br /></p>
+                            <h2><asp:Label ID="lbfirstname" runat="server" /><br /></h2>
+                            <p><asp:Label ID="lbstatus" runat="server" /><br /></p>
                             <button>View</button>             
                           </figcaption>
                         </figure>
@@ -511,11 +511,41 @@
                       <div class="single-doctor">
                       <a class="tdoctor" href="#" data-path-hover="m 180,34.57627 -180,0 L 0,0 180,0 z">
                         <figure>
-                          <img src="images/doctor-2.jpg" />
+                            <svg viewBox="0 0 180 320" preserveAspectRatio="none"><path d="M 180,160 0,218 0,0 180,0 z"/></svg>
+                            <asp:DataList ID="dlvadmin_2" runat="server" OnItemDataBound="dlvadmin_2_ItemDataBound">
+                            <ItemTemplate>
+                                <asp:Image ID="admin2img" runat="server" Height="430px" Width="209px" ></asp:Image>
+                            </ItemTemplate>
+                                
+                            </asp:DataList>
+                            <figcaption>
+                            <h2><asp:Label ID="lbadmin2firstname" runat="server" /><br /></h2>
+                            <p><asp:Label ID="lbadmin2status" runat="server" /><br /></p>
+                            <button>View</button>             
+                          </figcaption>
+                        </figure>
+                      </a>
+                      <div class="single-doctor-social">
+                        <a href="#"><span class="fa fa-facebook"></span></a>
+                        <a href="#"><span class="fa fa-twitter"></span></a>
+                        <a href="#"><span class="fa fa-google-plus"></span></a>
+                        <a href="#"><span class="fa fa-linkedin"></span></a>
+                      </div>
+                    </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="single-doctor">
+                      <div class="single-doctor">
+                      <a class="tdoctor" href="#" data-path-hover="m 180,34.57627 -180,0 L 0,0 180,0 z">
+                        <figure id="member3" runat="server">
+                            <asp:Image ID="member3img" runat="server" Height="430px" Width="209px"  />
                           <svg viewBox="0 0 180 320" preserveAspectRatio="none"><path d="M 180,160 0,218 0,0 180,0 z"/></svg>
                           <figcaption>
-                            <h2>DR. Jack Johnson</h2>
-                            <p>Rehabilitation Therapy</p>
+                            <h2 id="member3name" runat="server">
+                                <asp:Label ID="lbmember3name" runat="server" Text=""></asp:Label></h2>
+                            <p id="member3status" runat="server">
+                                <asp:Label ID="lbmember3status" runat="server" Text=""></asp:Label></p>
                             <button>View</button>             
                           </figcaption>
                         </figure>
@@ -534,34 +564,13 @@
                       <div class="single-doctor">
                       <a class="tdoctor" href="#" data-path-hover="m 180,34.57627 -180,0 L 0,0 180,0 z">
                         <figure>
-                          <img src="images/doctor-3.jpg" />
+                            <asp:Image ID="member4img" runat="server" Height="430px" Width="209px" />
                           <svg viewBox="0 0 180 320" preserveAspectRatio="none"><path d="M 180,160 0,218 0,0 180,0 z"/></svg>
                           <figcaption>
-                            <h2>Dr. Vanessa Smouic</h2>
-                            <p>Cardiac Clinic</p>
-                            <button>View</button>             
-                          </figcaption>
-                        </figure>
-                      </a>
-                      <div class="single-doctor-social">
-                        <a href="#"><span class="fa fa-facebook"></span></a>
-                        <a href="#"><span class="fa fa-twitter"></span></a>
-                        <a href="#"><span class="fa fa-google-plus"></span></a>
-                        <a href="#"><span class="fa fa-linkedin"></span></a>
-                      </div>
-                    </div>
-                    </div>
-                  </li>
-                  <li>
-                    <div class="single-doctor">
-                      <div class="single-doctor">
-                      <a class="tdoctor" href="#" data-path-hover="m 180,34.57627 -180,0 L 0,0 180,0 z">
-                        <figure>
-                          <img src="images/doctor-5.jpg" />
-                          <svg viewBox="0 0 180 320" preserveAspectRatio="none"><path d="M 180,160 0,218 0,0 180,0 z"/></svg>
-                          <figcaption>
-                            <h2>Dr. David Gresshoff</h2>
-                            <p>Laryngological Clinic</p>
+                            <h2 id="H1" runat="server">
+                                <asp:Label ID="lbmember4name" runat="server" Text=""></asp:Label></h2>
+                            <p id="P1" runat="server">
+                                <asp:Label ID="lbmember4status" runat="server" Text=""></asp:Label></p>
                             <button>View</button>             
                           </figcaption>
                         </figure>
